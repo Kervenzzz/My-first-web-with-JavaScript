@@ -1,0 +1,106 @@
+:root{
+  /* --------- Base (tu "blue-sky" + black) --------- */
+  --color-primary: #38BDF8;        /* blue-sky (accent principal) */
+  --color-primary-600: #0EA5E9;    /* hover / darken */
+  --color-primary-700: #0369A1;    /* borde/outline más oscuro */
+  --color-primary-50: #E6F8FF;     /* glow / pequeñas luces */
+
+  --color-black: #000000;          /* negro puro si lo quieres */
+  --bg: #050608;                   /* fondo principal (muy oscuro) */
+  --surface-1: #0B1220;            /* tarjetas / secciones elevadas */
+  --surface-2: #0F1724;            /* superficie secundaria / modales */
+
+  /* --------- Tipografía / estados de texto --------- */
+  --text-primary: #E6F0FA;         /* texto principal (sobre fondos oscuros) */
+  --text-secondary: #B6CADB;       /* texto secundario / meta-infos */
+  --text-muted: #8C9BAA;           /* texto menos importante (muted) */
+
+  /* --------- Grises (útiles para bordes, placeholders) --------- */
+  --gray-900: #0B1622;
+  --gray-800: #1B2730;
+  --gray-700: #2E3B45;
+  --gray-600: #475566;
+  --gray-500: #6B7F93;
+  --gray-400: #94A3B8;
+  --gray-300: #CBD5E1;
+  --gray-200: #E6EEF7;
+  --gray-100: #F5F8FB;
+
+  /* --------- Bordes y divisores --------- */
+  --border: rgba(255,255,255,0.06);      /* borde sutil en dark mode */
+  --border-strong: rgba(255,255,255,0.12);
+
+  /* --------- Accentos y estados (botones, badges) --------- */
+  --accent: #FFB86B;        /* acento cálido (para contrastar con blue) */
+  --accent-600: #F59E0B;
+  --success: #34D399;
+  --warning: #F97316;
+  --danger: #FB7185;
+
+  /* --------- Botones / CTAs --------- */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-bg-hover: var(--color-primary-600);
+  --btn-primary-text: #001827;   /* si usas primary muy claro, usa texto oscuro */
+  --btn-primary-text-contrast: #ffffff; /* si prefieres texto blanco (recomendado para botones brillantes) */
+
+  /* --------- Vidrio / overlays / modales --------- */
+  --glass-1: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.02);
+  --overlay: rgba(2,6,23,0.6);
+
+  /* --------- Sombras (oscuras para modo nocturno) --------- */
+  --shadow-1: 0 6px 24px rgba(2,6,23,0.6);
+  --shadow-2: 0 2px 10px rgba(2,6,23,0.45);
+
+  /* --------- Gradientes útiles --------- */
+  --gradient-primary: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+  --gradient-accent: linear-gradient(135deg, #FFB86B 0%, #F59E0B 100%);
+
+
+
+    /* Tipografía */
+    --font-base: Montserrat, sans-serif;
+    --font-heading: 'Open Sans', sans-serif;
+    --font-monospace: "Fira Code", monospace;
+
+  /* Tamaños de fuente */
+    --fs-xs: 0.75rem;  /* 12px */
+    --fs-sm: 0.875rem; /* 14px */
+    --fs-base: 1rem;   /* 16px */
+    --fs-lg: 1.125rem; /* 18px */
+    --fs-xl: 1.25rem;  /* 20px */
+    --fs-2xl: 1.5rem;  /* 24px */
+    --fs-3xl: 1.875rem;/* 30px */
+    --fs-4xl: 2.25rem; /* 36px */
+    --fs-5xl: 3rem;    /* 48px */
+
+  /* Peso de fuentes */
+    --fw-thin: 100;
+    --fw-extralight: 200;
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* Espaciados */
+    --spacing-xs: 0.25rem;  /* 4px */
+    --spacing-sm: 0.5rem;   /* 8px */
+    --spacing-md: 1rem;     /* 16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    --spacing-2xl: 3rem;/* 48px */
+    --spacing-4xl: 6rem; /*96px */
+    --max-width: 1200px;
+
+  /* Bordes y radios */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-md: 0.5rem;  /* 8px */
+    --radius-lg: 1rem;    /* 16px */
+    --radius-full: 9999px;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
+}

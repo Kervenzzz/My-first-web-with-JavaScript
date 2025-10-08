@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLES-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>NeXTech</title>
+</head>
+<body>
+    <div class="layout-container">
+
+        <!--HEADER SECTION-->
+        <header class="header">
+            
+            <!--HEADER TOP-->
+            <div class="header-top">
+                <div class="container header__top-container">
+                    <div class="header__top-left">
+                        <span class="header__top-text">
+                            Free shipping on orders over $50
+                        </span>
+                    </div>
+                    <div class="header__top-right">
+                        <a href="#" class="help">
+                            Help
+                        </a>
+                        <a href="singing.html" class="sing-in">
+                            Sing in
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--HEADER NAVIGATION-->
+            <div class="header__nav-container">
+                <div class="container nav-container">
+
+                    <!--NAV LOGO-->
+                    <div class="nav-logo">
+                        <a href="index.html" alt="nextech logo" class="nav-logo__link">
+                            <span class="logo-img">NX</span>
+                            <div class="logo__text-container">
+                                <span class="nex">NeX</span>
+                                <span class="tech">Tech</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!--NAV LINKS-->
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                            <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
+                            <li class="nav__item"><a href="brands.html" class="nav__link">Brands</a></li>
+                            <li class="nav__item"><a href="blogs.html" class="nav__link">Blogs</a></li>
+                        </ul>
+                    </nav>
+
+                    <!--NAV ICONS-->
+                    <div class="nav-icons">
+                        <button type="button" class="nav-icon btn__open-search" id="open-search">
+                            <i class="ti ti-search"></i>
+                        </button>
+                        <a href="user.html" class="nav-icon">
+                            <i class="ti ti-user"></i>
+                        </a>
+                        <a href="wish-list.html" class="nav-icon">
+                            <i class="ti ti-heart"></i>
+                        </a>
+                        <a href="cart.html" class="nav-icon cart-icon">
+                            <i class="ti ti-shopping-cart"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                        <button type="button" class="nav-icon btn__open-sidebar" id="open-sidebar">
+                            <i class="ti ti-menu-deep"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--MOBILE SIDBAR-->
+            <section class="mobile-sidebar" id="sidebar">
+                <div class="mobile-sidebar__header">
+                    <button type="button" class="btn__close-sidebar" id="close-sidebar">
+                        <i class="ti ti-x"></i>
+                    </button>
+                </div>
+                <nav class="mobile-sidebar__nav">
+                    <ul class="mobile-sidebar__list">
+                        <li class="mobile-sidebar__item"><a href="index.html" class="mobile-sidebar__link">Home</a></li>
+                        <li class="mobile-sidebar__item"><a href="products.html" class="mobile-sidebar__link">Products</a></li>
+                        <li class="mobile-sidebar__item"><a href="brands.html" class="mobile-sidebar__link">Brands</a></li>
+                        <li class="mobile-sidebar__item"><a href="blogs.html" class="mobile-sidebar__link">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="extra-content">
+                    <a href="singing.html" class="extra-content__link">Sing in</a>
+                    <a href="#" class="extra-content__link">Help</a>
+                </div>
+            </section>
+            <!--SEARCH MODAL-->
+            <section class="search-section " id="search">
+                <div class="search-header">
+                    
+                    <!--SEARCH LOGO-->
+                    <div class="container search-header__container">
+                        <div class="nav-logo">
+                            <a href="index.html" alt="nextech logo" class="nav-logo__link">
+                                <span class="logo-img">NX</span>
+                                <div class="logo__text-container">
+                                    <span class="nex">NeX</span>
+                                    <span class="tech">Tech</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!--SEARCH FORM-->
+                        <form class="search-form" action="search">
+                            <input type="text" class="search-input" placeholder="Search for products..." />
+                            <button type="submit" class="search-btn">
+                                <i class="ti ti-search"></i>
+                            </button> 
+                        </form>
+                        
+                        <!--CLOSE SEARCH SECTION-->
+                        <button type="button" class="btn__close-search" id="close-search">
+                            <i class="ti ti-x"></i>
+                        </button>
+                    </div>
+
+                </div>
+                <!--SEARCH SUGGESTION-->
+                <div class="suggestion-container">
+                    <h3>Popular search terms:</h3>
+                    <div class="suggestion-list">
+                        <a href="#" class="suggestion-item">Laptop</a>
+                        <a href="#" class="suggestion-item">Smartphone</a>
+                        <a href="#" class="suggestion-item">Headphones</a>
+                        <a href="#" class="suggestion-item">Camera</a>
+                        <a href="#" class="suggestion-item">Smartwatch</a>
+                        <a href="#" class="suggestion-item">Tablet</a>
+                        <a href="#" class="suggestion-item">Monitor</a>
+                        <a href="#" class="suggestion-item">Printer</a>
+                    </div>
+                </div>
+            </section>
+            <!--OVERLAY-->
+            <div class="overlay" id="overlay"></div>
+        </header>
+
+        <!--MAIN SECTION-->
+        <main class="main">
+            <!--BACKGROUD EFECT-->
+            <div class="bg-efect-container">
+                <div class="buble-1"></div>
+                <div class="buble-2"></div>
+                <div class="buble-3"></div>
+            </div>
+            <!--HERO SECTION-->
+            <section class="hero-section">
+                <div class="hero-container container">
+                    <div class="hero-top">
+
+                        <div class="line-decoration-1"></div>
+                        <div class="line-decoration-2"></div>
+
+                        <div class="fast__delivery">
+                            <span class="point-delivery"></span>
+                            <span class="delivery-text">Next‑gen hardware, delivered fast</span>
+                        </div>
+
+                        <h1 >
+                            Elevate your <span>setup</span> with cutting‑edge tech
+                        </h1>
+                        <p class="hero-p">
+                            Smartwatches, VR headsets, laptops, and cameras—curated for performance and style.
+                        </p>
+                        <a href="products.html" class="shop-link">
+                            Shop Now
+                            <i class="ti ti-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="hero-sliders">
+                        <div class="track">
+                            <div class="slider">
+                                <img src="./assets/image/laptopGamer1.jpeg" alt="pc">
+                                <div class="slide-gradient">
+                                    <a href="slide-link">Shop Now</a>
+                                </div>
+                                <div class="fast__delivery name-of-pdts">
+                                    <span class="point-delivery "></span>
+                                    <span class="delivery-text">Laptop Gamer ultra</span>
+                                </div>
+                            </div>
+                            <!--control BTN-->
+                            <div class="btn-slide">
+                                <button type="button prev"><i class="ti ti-chevron-left"></i></button>
+                                <button type="button next"><i class="ti ti-chevron-right"></i></button>
+                            </div>
+                            <div class="dots-btn">
+                                <button type="button" class="dot-btn"></button>
+                                <button type="button" class="dot-btn"></button>
+                                <button type="button" class="dot-btn"></button>
+                                <button type="button" class="dot-btn"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <script src="./assets/js/index.js"></script>
+    </div>
+</body>
+</html>
