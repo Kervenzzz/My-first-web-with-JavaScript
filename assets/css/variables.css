@@ -44,9 +44,9 @@
   --btn-primary-text-contrast: #ffffff; /* si prefieres texto blanco (recomendado para botones brillantes) */
 
   /* --------- Vidrio / overlays / modales --------- */
-  --glass-1: rgba(255,255,255,0.04);
-  --glass-2: rgba(255,255,255,0.02);
-  --overlay: rgba(2,6,23,0.6);
+--glass-1: rgba(255,255,255,0.04);
+--glass-2: rgba(255,255,255,0.02);
+--overlay: rgba(2,6,23,0.6);
 
   /* --------- Sombras (oscuras para modo nocturno) --------- */
   --shadow-1: 0 6px 24px rgba(2,6,23,0.6);

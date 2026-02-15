@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLES-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Checkout - NeXTech</title>
+</head>
+<body>
+    <div class="layout-container">
+        <!--HEADER SECTION-->
+        <header class="header">
+            <!--HEADER TOP-->
+            <div class="header-top">
+                <div class="container header__top-container">
+                    <div class="header__top-left">
+                        <span class="header__top-text">
+                            Free shipping on orders over $50
+                        </span>
+                    </div>
+                    <div class="header__top-right">
+                        <a href="#" class="help">
+                            Help
+                        </a>
+                        <a href="singing.html" class="sing-in">
+                            Sing in
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--HEADER NAVIGATION-->
+            <div class="header__nav-container">
+                <div class="container nav-container">
+                    <!--NAV LOGO-->
+                    <div class="nav-logo">
+                        <a href="index.html" alt="nextech logo" class="nav-logo__link">
+                            <span class="logo-img">NX</span>
+                            <div class="logo__text-container">
+                                <span class="logo-text">NeXTech</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!--NAV LINKS WITH ICONS-->
+                    <nav class="nav-pages">
+                        <ul style="display:flex;gap:16px;list-style:none;align-items:center;">
+                            <li><a href="index.html"><i class="ti ti-home"></i> Inicio</a></li>
+                            <li><a href="checkout.html"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                            <li><a href="orders.html"><i class="ti ti-box"></i> Pedidos</a></li>
+                            <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                        </ul>
+                    </nav>
+
+                    <!--NAV MENU BUTTON FOR MOBILE-->
+                    <button type="button" class="nav-mobile-menu" id="open-nav-sidebar">
+                        <i class="ti ti-menu-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!--MOBILE NAV SIDEBAR-->
+            <nav class="mobile-nav-sidebar" id="nav-sidebar">
+                <button type="button" class="nav-sidebar-close" id="close-nav-sidebar">
+                    <i class="ti ti-x"></i>
+                </button>
+                <ul class="nav-sidebar-list">
+                    <li><a href="index.html" class="nav-sidebar-link"><i class="ti ti-home"></i> Inicio</a></li>
+                    <li><a href="orders.html" class="nav-sidebar-link"><i class="ti ti-box"></i> Pedidos</a></li>
+                    <li><a href="checkout.html" class="nav-sidebar-link"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                    <li><a href="tracking.html" class="nav-sidebar-link"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--MAIN CONTENT-->
+        <main class="main">
+            <div class="container checkout-container">
+                <h1 class="checkout-title">Checkout</h1>
+
+                <div class="checkout-wrapper">
+                    <!-- LEFT SECTION: CART ITEMS -->
+                    <section class="checkout-items">
+                        <h2 class="section-title">Order Items</h2>
+
+                        <!-- CART ITEM 1 -->
+                        <div class="cart-item">
+
+                            <div class="left">
+                                <p>Delivery date: <span>Feb 15, 2026</span></p>
+
+                                <div class="cart-item-container">
+                                    <div class="item-image-container">
+                                        <img src="assets/image/canon1.jpeg" alt="Wireless Headphones" class="item-image">
+                                    </div>
+
+                                    <div class="item-content">
+                                        <h3>Wireless Headphones</h3>
+                                        <p class="price">$89.99</p>
+                                        <p>Quantity: 1 </p>
+                                        <div class="cart-action">
+                                            <span>Update</span>
+                                            <span>Delete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="delivery-options">
+                                <h3 class="section-subtitle">Choose Delivery Option</h3>
+                                
+                                <div class="delivery-option">
+                                    <input type="radio" id="standard" name="delivery" value="standard" checked>
+                                    <label for="standard">
+                                        <div class="option-header">
+                                            <span class="option-title">Friday, February 20</span>
+                                            <span class="option-price">FREE Shipping</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="delivery-option">
+                                    <input type="radio" id="express" name="delivery" value="express">
+                                    <label for="express">
+                                        <div class="option-header">
+                                            <span class="option-title">Monday, February 16</span>
+                                            <span class="option-price">$9.99 - Shipping</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="delivery-option">
+                                    <input type="radio" id="overnight" name="delivery" value="overnight">
+                                    <label for="overnight">
+                                        <div class="option-header">
+                                            <span class="option-title">Thursday, February 12</span>
+                                            <span class="option-price">$24.99 - Shipping</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </section>
+
+                    <!-- RIGHT SECTION: ORDER SUMMARY -->
+                    <aside class="order-summary">
+                        <h2 class="section-title">Order Summary</h2>
+
+                        <div class="summary-section">
+                            <div class="summary-row">
+                                <span class="summary-label">Items:</span>
+                                <span class="summary-value">4</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Subtotal:</span>
+                                <span class="summary-value">$152.95</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-section">
+                            <div class="summary-row">
+                                <span class="summary-label">Shipping & Handling:</span>
+                                <span class="summary-value">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-section">
+                            <div class="summary-row">
+                                <span class="summary-label">Total Before Tax:</span>
+                                <span class="summary-value">$152.95</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Estimated Tax (8%):</span>
+                                <span class="summary-value">$12.24</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider total-divider"></div>
+
+                        <div class="summary-section total">
+                            <div class="summary-row total-row">
+                                <span class="summary-label total-label">Order Total:</span>
+                                <span class="summary-value total-value">$165.19</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-place-order">Place Your Order</button>
+
+                        <div class="secure-checkout">
+                            <i class="ti ti-lock"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="container footer-container">
+                <div class="footer-top">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="footer-logo-img">NX</span>
+                            <span class="footer-logo-text">NeXTech</span>
+                        </div>
+                        <p class="footer-description">Your trusted source for the latest technology products and innovations. Quality products at competitive prices.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+                            <a href="#" class="social-link" title="Twitter"><i class="ti ti-brand-twitter"></i></a>
+                            <a href="#" class="social-link" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                            <a href="#" class="social-link" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Home</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Products</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>About Us</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Privacy Policy</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Terms & Conditions</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Shipping Info</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Returns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-mail"></i>
+                            <div>
+                                <p class="footer-contact-label">Email</p>
+                                <a href="mailto:info@nextech.com">info@nextech.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-phone"></i>
+                            <div>
+                                <p class="footer-contact-label">Phone</p>
+                                <a href="tel:1-800-639-8324">1-800-NEXTECH</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-map-pin"></i>
+                            <div>
+                                <p class="footer-contact-label">Address</p>
+                                <p>123 Tech Street, San Francisco, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NeXTech. All rights reserved.</p>
+                    <div class="footer-payments">
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Visa</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Mastercard</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>PayPal</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/tracking.js"></script>
+</body>
+</html>

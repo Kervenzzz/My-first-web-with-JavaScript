@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLES-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/orders.css">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Orders - NeXTech</title>
+</head>
+<body>
+    <div class="layout-container">
+        <!--HEADER SECTION-->
+        <header class="header">
+            <!--HEADER TOP-->
+            <div class="header-top">
+                <div class="container header__top-container">
+                    <div class="header__top-left">
+                        <span class="header__top-text">
+                            Free shipping on orders over $50
+                        </span>
+                    </div>
+                    <div class="header__top-right">
+                        <a href="#" class="help">
+                            Help
+                        </a>
+                        <a href="singing.html" class="sing-in">
+                            Sing in
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--HEADER NAVIGATION-->
+            <div class="header__nav-container">
+                <div class="container nav-container">
+                    <!--NAV LOGO-->
+                    <div class="nav-logo">
+                        <a href="index.html" alt="nextech logo" class="nav-logo__link">
+                            <span class="logo-img">NX</span>
+                            <div class="logo__text-container">
+                                <span class="logo-text">NeXTech</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!--NAV LINKS WITH ICONS-->
+                    <nav class="nav-pages">
+                        <ul style="display:flex;gap:16px;list-style:none;align-items:center;">
+                            <li><a href="index.html"><i class="ti ti-home"></i> Inicio</a></li>
+                            <li><a href="checkout.html"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                            <li><a href="orders.html"><i class="ti ti-box"></i> Pedidos</a></li>
+                            <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                        </ul>
+                    </nav>
+
+                    <!--NAV MENU BUTTON FOR MOBILE-->
+                    <button type="button" class="nav-mobile-menu" id="open-nav-sidebar">
+                        <i class="ti ti-menu-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!--MOBILE NAV SIDEBAR-->
+            <nav class="mobile-nav-sidebar" id="nav-sidebar">
+                <button type="button" class="nav-sidebar-close" id="close-nav-sidebar">
+                    <i class="ti ti-x"></i>
+                </button>
+                <ul class="nav-sidebar-list">
+                    <li><a href="index.html" class="nav-sidebar-link"><i class="ti ti-home"></i> Inicio</a></li>
+                    <li><a href="checkout.html" class="nav-sidebar-link"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                    <li><a href="orders.html" class="nav-sidebar-link"><i class="ti ti-box"></i> Pedidos</a></li>
+                    <li><a href="tracking.html" class="nav-sidebar-link"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--MAIN CONTENT-->
+        <main class="main-content">
+            <div class="container">
+                <section class="orders-section">
+                    <h1 class="orders-title">Your Orders</h1>
+                    
+                    <div class="orders-grid" id="ordersContainer">
+                        <!-- Order item will be inserted here by JavaScript -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-info">
+                                    <div class="order-meta">
+                                        <span class="order-label">Order Placed:</span>
+                                        <span class="order-date">February 11, 2026</span>
+                                    </div>
+                                    <div class="order-meta">
+                                        <span class="order-label">Order Total:</span>
+                                        <span class="order-total">$29.68</span>
+                                    </div>
+                                </div>
+                                <div class="order-id">
+                                    <span class="order-label">Order ID:</span>
+                                    <span class="order-number">a759049b-d218-f724-85a5</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        <img src="assets/image/canon1.jpeg" alt="Product">
+                                    </div>
+                                    <div class="item-details">
+                                        <h3 class="item-name">Adults Plain Cotton T-Shirt - 2 Pack</h3>
+                                        <p class="item-delivery">Arriving on: <span class="item-delivery-span">February 16</span></p>
+                                        <p class="item-quantity">Quantity: 1</p>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-primary">Buy Again</button>
+                                        <button class="btn btn-secondary">Track Package</button>
+                                    </div>
+                                </div>
+
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        <img src="assets/image/canon2.jpeg" alt="Product">
+                                    </div>
+                                    <div class="item-details">
+                                        <h3 class="item-name">2 Slot Toaster - Black</h3>
+                                        <p class="item-delivery">Arriving on: <span class="item-delivery-span">February 16</span></p>
+                                        <p class="item-quantity">Quantity: 1</p>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-primary">Buy Again</button>
+                                            <a href="tracking.html" class="btn btn-secondary">Track Package</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-info">
+                                    <div class="order-meta">
+                                        <span class="order-label">Order Placed:</span>
+                                        <span class="order-date">February 11, 2026</span>
+                                    </div>
+                                    <div class="order-meta">
+                                        <span class="order-total">$35.06</span>
+                                    </div>
+                                </div>
+                                <div class="order-id">
+                                    <span class="order-label">Order ID:</span>
+                                    <span class="order-number">27cba69d-4c3d-4098-b42d</span>
+                                </div>
+                            </div>
+
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        <img src="assets/image/drone1.jpeg" alt="Product">
+                                    </div>
+                                    <div class="item-details">
+                                        <h3 class="item-name">Black and Gray Athletic Cotton Socks - 6 Pairs</h3>
+                                        <p class="item-delivery">Arriving on: <span class="item-delivery-span">February 16</span></p>
+                                        <p class="item-quantity">Quantity: 1</p>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-primary">Buy Again</button>
+                                        <button class="btn btn-secondary">Track Package</button>
+                                    </div>
+                                </div>
+
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        <img src="assets/image/smartTv1.jpeg" alt="Product">
+                                    </div>
+                                    <div class="item-details">
+                                        <h3 class="item-name">Adults Plain Cotton T-Shirt - 2 Pack</h3>
+                                        <p class="item-delivery">Arriving on: <span class="item-delivery-span">February 16</span></p>
+                                        <p class="item-quantity">Quantity: 2</p>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-primary">Buy Again</button>
+                                        <button class="btn btn-secondary">Track Package</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="empty-orders" style="display: none;">
+                        <i class="ti ti-inbox"></i>
+                        <p>You don't have any orders yet</p>
+                        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!--FOOTER SECTION-->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="footer-logo-img">NX</span>
+                            <span class="footer-logo-text">NeXTech</span>
+                        </div>
+                        <p class="footer-description">Your trusted source for the latest technology products and innovations. Quality products at competitive prices.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+                            <a href="#" class="social-link" title="Twitter"><i class="ti ti-brand-twitter"></i></a>
+                            <a href="#" class="social-link" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                            <a href="#" class="social-link" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Home</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Products</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>About Us</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Privacy Policy</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Terms & Conditions</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Shipping Info</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Returns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-mail"></i>
+                            <div>
+                                <p class="footer-contact-label">Email</p>
+                                <a href="mailto:info@nextech.com">info@nextech.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-phone"></i>
+                            <div>
+                                <p class="footer-contact-label">Phone</p>
+                                <a href="tel:1-800-639-8324">1-800-NEXTECH</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-map-pin"></i>
+                            <div>
+                                <p class="footer-contact-label">Address</p>
+                                <p>123 Tech Street, San Francisco, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NeXTech. All rights reserved.</p>
+                    <div class="footer-payments">
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Visa</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Mastercard</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>PayPal</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--SCRIPTS-->
+    <script type="module" src="assets/js/orders.js"></script>
+    <script src="assets/js/tracking.js"></script>
+</body>
+</html>

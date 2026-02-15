@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLES-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/tracking.css">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Order Tracking - NeXTech</title>
+</head>
+<body>
+    <div class="layout-container">
+        <!--HEADER SECTION-->
+        <header class="header">
+            <!--HEADER TOP-->
+            <div class="header-top">
+                <div class="container header__top-container">
+                    <div class="header__top-left">
+                        <span class="header__top-text">
+                            Free shipping on orders over $50
+                        </span>
+                    </div>
+                    <div class="header__top-right">
+                        <a href="#" class="help">
+                            Help
+                        </a>
+                        <a href="singing.html" class="sing-in">
+                            Sing in
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--HEADER NAVIGATION-->
+            <div class="header__nav-container">
+                <div class="container nav-container">
+                    <!--NAV LOGO-->
+                    <div class="nav-logo">
+                        <a href="index.html" alt="nextech logo" class="nav-logo__link">
+                            <span class="logo-img">NX</span>
+                            <div class="logo__text-container">
+                                <span class="logo-text">NeXTech</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!--NAV LINKS WITH ICONS-->
+                    <nav class="nav-pages">
+                        <ul style="display:flex;gap:16px;list-style:none;align-items:center;">
+                            <li><a href="index.html"><i class="ti ti-home"></i> Inicio</a></li>
+                            <li><a href="checkout.html"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                            <li><a href="orders.html"><i class="ti ti-box"></i> Pedidos</a></li>
+                            <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!--MAIN CONTENT-->
+        <main class="main-content">
+            <div class="container">
+                <section class="tracking-section">
+                    <h1 class="tracking-title">Order Tracking</h1>
+
+                    <div class="tracking-grid" id="trackingContainer">
+                        <!-- Tracking items will be displayed here -->
+                        
+                        <!-- TRACKING CARD 1 -->
+                        <div class="tracking-card">
+                            <div class="tracking-header">
+                                <div class="tracking-info">
+                                    <div class="tracking-meta">
+                                        <span class="tracking-label">Order ID:</span>
+                                        <span class="tracking-value">a759049b-d218-f724-85a5</span>
+                                    </div>
+                                    <div class="tracking-meta">
+                                        <span class="tracking-label">Status:</span>
+                                        <span class="tracking-status in-transit">In Transit</span>
+                                    </div>
+                                </div>
+                                <div class="tracking-date">
+                                    <span class="tracking-label">Expected Delivery:</span>
+                                    <span class="tracking-value">February 16, 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="tracking-product">
+                                <img src="assets/image/canon1.jpeg" alt="Product" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-name">Adults Plain Cotton T-Shirt - 2 Pack</h3>
+                                    <p class="product-quantity">Quantity: 1</p>
+                                </div>
+                            </div>
+
+                            <div class="tracking-timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Prepared</h4>
+                                        <p class="timeline-date">February 11, 2026 - 10:30 AM</p>
+                                        <p class="timeline-description">Your order has been prepared for shipment</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item active">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-truck-delivery"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Shipped</h4>
+                                        <p class="timeline-date">February 13, 2026 - 08:45 AM</p>
+                                        <p class="timeline-description">Your package has been shipped and is on the way</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item pending">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-package"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Delivered</h4>
+                                        <p class="timeline-description">Expected to arrive on February 16, 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TRACKING CARD 2 -->
+                        <div class="tracking-card">
+                            <div class="tracking-header">
+                                <div class="tracking-info">
+                                    <div class="tracking-meta">
+                                        <span class="tracking-label">Order ID:</span>
+                                        <span class="tracking-value">27cba69d-4c3d-4098-b42d</span>
+                                    </div>
+                                    <div class="tracking-meta">
+                                        <span class="tracking-label">Status:</span>
+                                        <span class="tracking-status delivered">Delivered</span>
+                                    </div>
+                                </div>
+                                <div class="tracking-date">
+                                    <span class="tracking-label">Delivered:</span>
+                                    <span class="tracking-value">February 12, 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="tracking-product">
+                                <img src="assets/image/drone1.jpeg" alt="Product" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs</h3>
+                                    <p class="product-quantity">Quantity: 1</p>
+                                </div>
+                            </div>
+
+                            <div class="tracking-timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Prepared</h4>
+                                        <p class="timeline-date">February 10, 2026 - 03:20 PM</p>
+                                        <p class="timeline-description">Your order has been prepared for shipment</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Shipped</h4>
+                                        <p class="timeline-date">February 11, 2026 - 09:15 AM</p>
+                                        <p class="timeline-description">Your package has been shipped</p>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker">
+                                        <i class="ti ti-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h4 class="timeline-title">Delivered</h4>
+                                        <p class="timeline-date">February 12, 2026 - 05:30 PM</p>
+                                        <p class="timeline-description">Your order has been successfully delivered</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!--FOOTER SECTION-->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="footer-logo-img">NX</span>
+                            <span class="footer-logo-text">NeXTech</span>
+                        </div>
+                        <p class="footer-description">Your trusted source for the latest technology products and innovations. Quality products at competitive prices.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+                            <a href="#" class="social-link" title="Twitter"><i class="ti ti-brand-twitter"></i></a>
+                            <a href="#" class="social-link" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                            <a href="#" class="social-link" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Home</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Products</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>About Us</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Privacy Policy</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Terms & Conditions</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Shipping Info</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Returns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-mail"></i>
+                            <div>
+                                <p class="footer-contact-label">Email</p>
+                                <a href="mailto:info@nextech.com">info@nextech.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-phone"></i>
+                            <div>
+                                <p class="footer-contact-label">Phone</p>
+                                <a href="tel:1-800-639-8324">1-800-NEXTECH</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-map-pin"></i>
+                            <div>
+                                <p class="footer-contact-label">Address</p>
+                                <p>123 Tech Street, San Francisco, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NeXTech. All rights reserved.</p>
+                    <div class="footer-payments">
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Visa</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Mastercard</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>PayPal</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="./assets/js/tracking.js"></script>
+</body>
+</html>

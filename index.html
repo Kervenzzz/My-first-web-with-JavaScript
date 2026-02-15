@@ -55,12 +55,12 @@
                     </div>
 
                     <!--NAV LINKS-->
-                    <nav class="nav">
-                        <ul class="nav__list">
-                            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                            <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
-                            <li class="nav__item"><a href="brands.html" class="nav__link">Brands</a></li>
-                            <li class="nav__item"><a href="blogs.html" class="nav__link">Blogs</a></li>
+                    <nav class="nav-pages">
+                        <ul style="display:flex;gap:16px;list-style:none;align-items:center;">
+                            <li><a href="index.html"><i class="ti ti-home"></i> Inicio</a></li>
+                            <li><a href="checkout.html"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                            <li><a href="orders.html"><i class="ti ti-box"></i> Pedidos</a></li>
+                            <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
                         </ul>
                     </nav>
 
@@ -69,42 +69,24 @@
                         <button type="button" class="nav-icon btn__open-search" id="open-search">
                             <i class="ti ti-search"></i>
                         </button>
-                        <a href="user.html" class="nav-icon">
-                            <i class="ti ti-user"></i>
-                        </a>
-                        <a href="wish-list.html" class="nav-icon">
-                            <i class="ti ti-heart"></i>
-                        </a>
-                        <a href="cart.html" class="nav-icon cart-icon">
-                            <i class="ti ti-shopping-cart"></i>
-                            <span class="cart-badge">0</span>
-                        </a>
-                        <button type="button" class="nav-icon btn__open-sidebar" id="open-sidebar">
-                            <i class="ti ti-menu-deep"></i>
+                        <button type="button" class="nav-mobile-menu" id="open-nav-sidebar">
+                            <i class="ti ti-menu-2"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <!--MOBILE SIDBAR-->
-            <section class="mobile-sidebar" id="sidebar">
-                <div class="mobile-sidebar__header">
-                    <button type="button" class="btn__close-sidebar" id="close-sidebar">
-                        <i class="ti ti-x"></i>
-                    </button>
-                </div>
-                <nav class="mobile-sidebar__nav">
-                    <ul class="mobile-sidebar__list">
-                        <li class="mobile-sidebar__item"><a href="index.html" class="mobile-sidebar__link">Home</a></li>
-                        <li class="mobile-sidebar__item"><a href="products.html" class="mobile-sidebar__link">Products</a></li>
-                        <li class="mobile-sidebar__item"><a href="brands.html" class="mobile-sidebar__link">Brands</a></li>
-                        <li class="mobile-sidebar__item"><a href="blogs.html" class="mobile-sidebar__link">Blogs</a></li>
-                    </ul>
-                </nav>
-                <div class="extra-content">
-                    <a href="singing.html" class="extra-content__link">Sing in</a>
-                    <a href="#" class="extra-content__link">Help</a>
-                </div>
-            </section>
+            <!--MOBILE NAV SIDEBAR-->
+            <nav class="mobile-nav-sidebar" id="nav-sidebar">
+                <button type="button" class="nav-sidebar-close" id="close-nav-sidebar">
+                    <i class="ti ti-x"></i>
+                </button>
+                <ul class="nav-sidebar-list">
+                    <li><a href="index.html" class="nav-sidebar-link"><i class="ti ti-home"></i> Inicio</a></li>
+                    <li><a href="orders.html" class="nav-sidebar-link"><i class="ti ti-box"></i> Pedidos</a></li>
+                    <li><a href="checkout.html" class="nav-sidebar-link"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                    <li><a href="tracking.html" class="nav-sidebar-link"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                </ul>
+            </nav>
             <!--SEARCH MODAL-->
             <section class="search-section " id="search">
                 <div class="search-header">
@@ -175,39 +157,268 @@
                             <span class="delivery-text">Next‑gen hardware, delivered fast</span>
                         </div>
 
-                        <h1 >
-                            Elevate your <span>setup</span> with cutting‑edge tech
-                        </h1>
-                        <p class="hero-p">
-                            Smartwatches, VR headsets, laptops, and cameras—curated for performance and style.
-                        </p>
-                        <a href="products.html" class="shop-link">
-                            Shop Now
-                            <i class="ti ti-arrow-right"></i>
-                        </a>
+                        
                     </div>
-                    <div class="hero-sliders">
-                        <div class="track">
-                            <div class="slider">
-                                <img src="./assets/image/laptopGamer1.jpeg" alt="pc">
-                                <div class="slide-gradient">
-                                    <a href="slide-link">Shop Now</a>
+                    <div class="hero-slider">
+                        <ul class="slide-list" id="slide-ul">
+                            <li class="slide-item" >
+                                <img src="assets/image/laptopGamer1.jpeg" alt="drone">
+
+                                <div class="slide-info">
+                                    <h2>Gaming Laptop</h2>
+                                    <p>High performance laptop for gamers</p>
+                                    <button class="shop">Shop Now</button>
                                 </div>
-                                <div class="fast__delivery name-of-pdts">
-                                    <span class="point-delivery "></span>
-                                    <span class="delivery-text">Laptop Gamer ultra</span>
+                            </li>
+                            <li class="slide-item">
+                                <img src="assets/image/canon1.jpeg" alt="drone">
+
+                                <div class="slide-info">
+                                    <h2>Gaming Laptop</h2>
+                                    <p>High performance laptop for gamers</p>
+                                    <button class="shop">Shop Now</button>
                                 </div>
+                            </li>
+                            <li class="slide-item">
+                                <img src="assets/image/drone1.jpeg" alt="drone">
+
+                                <div class="slide-info">
+                                    <h2>Gaming Laptop</h2>
+                                    <p>High performance laptop for gamers</p>
+                                    <button class="shop">Shop Now</button>
+                                </div>
+                            </li>
+                            <li class="slide-item">
+                                <img src="assets/image/laptop1.jpeg" alt="drone">
+                                
+                                <div class="slide-info">
+                                    <h2>Gaming Laptop</h2>
+                                    <p>High performance laptop for gamers</p>
+                                    <button class="shop">Shop Now</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="control">
+                            <button class="prev"><i class="ti ti-chevron-left"></i></button>
+                            <button class="next"><i class="ti ti-chevron-right"></i></button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--PRODUCTS SECTION-->
+            <section class="products-section">
+                <div class="container">
+                    <h2 class="products-title">Featured Products</h2>
+                    <div class="products-grid">
+                        <!-- Producto 1 -->
+                        <div class="product-card">
+                            <img src="assets/image/laptop1.jpeg" alt="Gaming Laptop" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">Gaming Laptop</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-empty">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(128)</span>
+                                </div>
+                                <div class="product-price">$1,299.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-1">Quantity:</label>
+                                    <select id="quantity-1">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
                             </div>
-                            <!--control BTN-->
-                            <div class="btn-slide">
-                                <button type="button prev"><i class="ti ti-chevron-left"></i></button>
-                                <button type="button next"><i class="ti ti-chevron-right"></i></button>
+                        </div>
+
+                        <!-- Producto 2 -->
+                        <div class="product-card">
+                            <img src="assets/image/drone1.jpeg" alt="Wireless Headphones" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">Wireless Headphones</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(256)</span>
+                                </div>
+                                <div class="product-price">$199.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-2">Quantity:</label>
+                                    <select id="quantity-2">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
                             </div>
-                            <div class="dots-btn">
-                                <button type="button" class="dot-btn"></button>
-                                <button type="button" class="dot-btn"></button>
-                                <button type="button" class="dot-btn"></button>
-                                <button type="button" class="dot-btn"></button>
+                        </div>
+
+                        <!-- Producto 3 -->
+                        <div class="product-card">
+                            <img src="assets/image/canon1.jpeg" alt="Professional Camera" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">Professional Camera</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-empty">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(89)</span>
+                                </div>
+                                <div class="product-price">$899.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-3">Quantity:</label>
+                                    <select id="quantity-3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Producto 4 -->
+                        <div class="product-card">
+                            <img src="assets/image/laptopGamer1.jpeg" alt="Gaming Mouse" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">Gaming Mouse</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-empty">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(342)</span>
+                                </div>
+                                <div class="product-price">$79.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-4">Quantity:</label>
+                                    <select id="quantity-4">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Producto 5 -->
+                        <div class="product-card">
+                            <img src="assets/image/laptop1.jpeg" alt="USB-C Hub" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">USB-C Hub</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-empty">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(178)</span>
+                                </div>
+                                <div class="product-price">$49.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-5">Quantity:</label>
+                                    <select id="quantity-5">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Producto 6 -->
+                        <div class="product-card">
+                            <img src="assets/image/drone1.jpeg" alt="4K Monitor" class="product-image">
+                            <div class="product-content">
+                                <h3 class="product-name">4K Monitor</h3>
+                                <div class="product-rating">
+                                    <div class="product-stars">
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                        <span class="star-filled">★</span>
+                                    </div>
+                                    <span class="product-rating-count">(94)</span>
+                                </div>
+                                <div class="product-price">$599.99</div>
+                                <div class="product-quantity">
+                                    <label for="quantity-6">Quantity:</label>
+                                    <select id="quantity-6">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <button class="btn-add-cart">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -215,8 +426,85 @@
             </section>
         </main>
 
+        <!--FOOTER SECTION-->
+        <footer class="footer">
+            <div class="container footer-container">
+                <div class="footer-top">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="footer-logo-img">NX</span>
+                            <span class="footer-logo-text">NeXTech</span>
+                        </div>
+                        <p class="footer-description">Your trusted source for the latest technology products and innovations. Quality products at competitive prices.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+                            <a href="#" class="social-link" title="Twitter"><i class="ti ti-brand-twitter"></i></a>
+                            <a href="#" class="social-link" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
+                            <a href="#" class="social-link" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Home</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Products</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>About Us</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Privacy Policy</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Terms & Conditions</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Shipping Info</a></li>
+                            <li><a href="#"><i class="ti ti-arrow-right"></i>Returns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-mail"></i>
+                            <div>
+                                <p class="footer-contact-label">Email</p>
+                                <a href="mailto:info@nextech.com">info@nextech.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-phone"></i>
+                            <div>
+                                <p class="footer-contact-label">Phone</p>
+                                <a href="tel:1-800-639-8324">1-800-NEXTECH</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="ti ti-map-pin"></i>
+                            <div>
+                                <p class="footer-contact-label">Address</p>
+                                <p>123 Tech Street, San Francisco, CA 94103</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NeXTech. All rights reserved.</p>
+                    <div class="footer-payments">
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Visa</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>Mastercard</span>
+                        <span class="payment-method"><i class="ti ti-credit-card"></i>PayPal</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="./assets/js/index.js"></script>
+        <script src="./assets/js/tracking.js"></script>
     </div>
 </body>
 </html>
