@@ -58,8 +58,26 @@
                             <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
                         </ul>
                     </nav>
+
+                    <!--NAV MENU BUTTON FOR MOBILE-->
+                    <button type="button" class="nav-mobile-menu" id="open-nav-sidebar">
+                        <i class="ti ti-menu-2"></i>
+                    </button>
                 </div>
             </div>
+
+            <!--MOBILE NAV SIDEBAR-->
+            <nav class="mobile-nav-sidebar" id="nav-sidebar">
+                <button type="button" class="nav-sidebar-close" id="close-nav-sidebar">
+                    <i class="ti ti-x"></i>
+                </button>
+                <ul class="nav-sidebar-list">
+                    <li><a href="index.html" class="nav-sidebar-link"><i class="ti ti-home"></i> Inicio</a></li>
+                    <li><a href="checkout.html" class="nav-sidebar-link"><i class="ti ti-credit-card"></i> Checkout</a></li>
+                    <li><a href="orders.html" class="nav-sidebar-link"><i class="ti ti-box"></i> Pedidos</a></li>
+                    <li><a href="tracking.html" class="nav-sidebar-link"><i class="ti ti-map-pin"></i> Tracking</a></li>
+                </ul>
+            </nav>
         </header>
 
         <!--MAIN CONTENT-->
@@ -121,7 +139,7 @@
                                     </div>
                                 </div>
 
-                                <div class="timeline-item pending">
+                                <div class="timeline-item pendeng">
                                     <div class="timeline-marker">
                                         <i class="ti ti-package"></i>
                                     </div>
@@ -133,68 +151,6 @@
                             </div>
                         </div>
 
-                        <!-- TRACKING CARD 2 -->
-                        <div class="tracking-card">
-                            <div class="tracking-header">
-                                <div class="tracking-info">
-                                    <div class="tracking-meta">
-                                        <span class="tracking-label">Order ID:</span>
-                                        <span class="tracking-value">27cba69d-4c3d-4098-b42d</span>
-                                    </div>
-                                    <div class="tracking-meta">
-                                        <span class="tracking-label">Status:</span>
-                                        <span class="tracking-status delivered">Delivered</span>
-                                    </div>
-                                </div>
-                                <div class="tracking-date">
-                                    <span class="tracking-label">Delivered:</span>
-                                    <span class="tracking-value">February 12, 2026</span>
-                                </div>
-                            </div>
-
-                            <div class="tracking-product">
-                                <img src="assets/image/drone1.jpeg" alt="Product" class="product-image">
-                                <div class="product-info">
-                                    <h3 class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs</h3>
-                                    <p class="product-quantity">Quantity: 1</p>
-                                </div>
-                            </div>
-
-                            <div class="tracking-timeline">
-                                <div class="timeline-item completed">
-                                    <div class="timeline-marker">
-                                        <i class="ti ti-check"></i>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <h4 class="timeline-title">Prepared</h4>
-                                        <p class="timeline-date">February 10, 2026 - 03:20 PM</p>
-                                        <p class="timeline-description">Your order has been prepared for shipment</p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-item completed">
-                                    <div class="timeline-marker">
-                                        <i class="ti ti-check"></i>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <h4 class="timeline-title">Shipped</h4>
-                                        <p class="timeline-date">February 11, 2026 - 09:15 AM</p>
-                                        <p class="timeline-description">Your package has been shipped</p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-item completed">
-                                    <div class="timeline-marker">
-                                        <i class="ti ti-check"></i>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <h4 class="timeline-title">Delivered</h4>
-                                        <p class="timeline-date">February 12, 2026 - 05:30 PM</p>
-                                        <p class="timeline-description">Your order has been successfully delivered</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -280,5 +236,6 @@
 
     <!--SCRIPTS-->
     <script src="./assets/js/tracking.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
