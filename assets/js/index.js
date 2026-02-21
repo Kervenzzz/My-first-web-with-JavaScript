@@ -154,38 +154,43 @@ const productsContainer = document.querySelector('.js-products-grid')
 
 let products = [
     {
-    image : "assets/image/laptop1.jpeg",
-    name : 'Gaming Laptop',
-    rating : {
-        stars : '5' ,
-        count : '120'
-    },
-    priceCent : '129999',
-}, {
-    image : "assets/image/canon1.jpeg",
-    name : 'Camara Ultra Angular',
-    rating : {
-        stars : '4' ,
-        count : '808'
-    },
-    priceCent : '83000',
-},{
-    image : "assets/image/drone1.jpeg",
-    name : 'DJI mini Drone fast',
-    rating : {
-        stars : '3.5' ,
-        count : '1399'
-    },
-    priceCent : '65000',
-},{
-    image : "assets/image/jbl1.jpeg",
-    name : 'Good sound JBL',
-    rating : {
-        stars : '4.5' ,
-        count : '1200'
-    },
-    priceCent : '43599',
-}];
+        id : crypto.randomUUID(),
+        image : "assets/image/laptop1.jpeg",
+        name : 'Gaming Laptop',
+        rating : {
+            stars : '5' ,
+            count : '120'
+        },
+        priceCent : '129999',
+    }, {
+        id : crypto.randomUUID(),
+        image : "assets/image/canon1.jpeg",
+        name : 'Camara Ultra Angular',
+        rating : {
+            stars : '4' ,
+            count : '808'
+        },
+        priceCent : '83000',
+    },{
+        id : crypto.randomUUID(),
+        image : "assets/image/drone1.jpeg",
+        name : 'DJI mini Drone fast',
+        rating : {
+            stars : '3.5' ,
+            count : '1399'
+        },
+        priceCent : '65000',
+    },{
+        id : crypto.randomUUID(),
+        image : "assets/image/jbl1.jpeg",
+        name : 'Good sound JBL',
+        rating : {
+            stars : '4.5' ,
+            count : '1200'
+        },
+        priceCent : '43599',
+    }
+];
 
 let productsHtml = '';
 
@@ -204,7 +209,7 @@ products.forEach((product) => {
                 <div class="product-price">$${(product.priceCent / 100).toFixed(2)}</div>
                 <div class="product-quantity">
                     <label for="quantity-1">Quantity:</label>
-                    <select id="quantity-1">
+                    <select id="quantity-1" >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -217,10 +222,51 @@ products.forEach((product) => {
                         <option value="10">10</option>
                     </select>
                 </div>
-                <button class="btn-add-cart">Add to Cart</button>
+                <button class="btn-add-cart js-btn-add-cart " data-product-id='${product.id}'>Add to Cart</button>
             </div>
         </div>
     `
-})
+});
 
 productsContainer.innerHTML = productsHtml;
+
+const cartCount = document.querySelector('.cart-count');
+
+
+document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
+  btn.addEventListener('click', () => {
+
+    const productId = Number(btn.dataset.productId);
+    let matchingItem;
+
+    cart.forEach((item) => {
+      if (item.id === productId) {
+        matchingItem = item;
+      }
+    });
+
+    if (matchingItem) {
+      matchingItem.quantity++;
+    } else {
+      cart.push({
+        id: productId,
+        quantity: 1
+      });
+    }
+
+    // recalcular el total correctamente
+    let cartQuantity = 0;
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
+    });
+
+
+  if (cartQuantity > 0) {
+    cartCount.innerHTML = cartQuantity;
+    cartCount.style.display = 'block';
+  } else {
+    cartCount.style.display = 'none';
+  }
+
+  });
+});
