@@ -1,3 +1,5 @@
+import {cart} from './checkout.js'
+
 // HEADER
 const openSidebar = document.querySelector('#open-nav-sidebar');
 const sidebar = document.querySelector('#nav-sidebar');
