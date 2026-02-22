@@ -1,4 +1,5 @@
-import { cart } from './checkout.js';
+import { products } from './products-data.js';
+import { cart, addToCart } from './checkout.js';
 import { initHeader } from './header.js';
 
 initHeader();
@@ -109,46 +110,6 @@ const dotsContainer = document.querySelector('.dots-container');
 
 const productsContainer = document.querySelector('.js-products-grid')
 
-let products = [
-    {
-        id : crypto.randomUUID(),
-        image : "assets/image/laptop1.jpeg",
-        name : 'Gaming Laptop',
-        rating : {
-            stars : '5' ,
-            count : '120'
-        },
-        priceCent : '129999',
-    }, {
-        id : crypto.randomUUID(),
-        image : "assets/image/canon1.jpeg",
-        name : 'Camara Ultra Angular',
-        rating : {
-            stars : '4' ,
-            count : '808'
-        },
-        priceCent : '83000',
-    },{
-        id : crypto.randomUUID(),
-        image : "assets/image/drone1.jpeg",
-        name : 'DJI mini Drone fast',
-        rating : {
-            stars : '3.5' ,
-            count : '1399'
-        },
-        priceCent : '65000',
-    },{
-        id : crypto.randomUUID(),
-        image : "assets/image/jbl1.jpeg",
-        name : 'Good sound JBL',
-        rating : {
-            stars : '4.5' ,
-            count : '1200'
-        },
-        priceCent : '43599',
-    }
-];
-
 let productsHtml = '';
 
 products.forEach((product) => {
@@ -190,32 +151,11 @@ productsContainer.innerHTML = productsHtml;
 const cartCount = document.querySelector('.cart-count');
 
 
-document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
-  btn.addEventListener('click', () => {
-
-    const productId = Number(btn.dataset.productId);
-    let matchingItem;
-
-    cart.forEach((item) => {
-      if (item.id === productId) {
-        matchingItem = item;
-      }
-    });
-
-    if (matchingItem) {
-      matchingItem.quantity++;
-    } else {
-      cart.push({
-        id: productId,
-        quantity: 1
-      });
-    }
-
-    // recalcular el total correctamente
-    let cartQuantity = 0;
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    });
+function updateCartCount (){
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
 
 
   if (cartQuantity > 0) {
@@ -224,6 +164,17 @@ document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
   } else {
     cartCount.style.display = 'none';
   }
+}
+
+
+document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    // adding to the cart
+    const productId = Number(btn.dataset.productId);
+    addToCart(productId)
+
+    // recalcular el total correctamente
+    updateCartCount()
 
   });
 });
