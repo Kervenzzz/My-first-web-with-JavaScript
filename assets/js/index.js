@@ -1,13 +1,7 @@
-import {cart} from './checkout.js'
+import { cart } from './checkout.js';
+import { initHeader } from './header.js';
 
-// HEADER
-const openSidebar = document.querySelector('#open-nav-sidebar');
-const sidebar = document.querySelector('#nav-sidebar');
-const closeSidebar = document.querySelector('#close-nav-sidebar');
-const openSearch = document.querySelector('#open-search');
-const closeSearch = document.querySelector('#close-search');
-const search = document.querySelector('#search');
-const overlay = document.querySelector('#overlay');
+initHeader();
 
 // SLIDER
 const track = document.querySelector('#slide-ul');
@@ -15,45 +9,6 @@ const slides = document.querySelectorAll('.slide-item'); // renamed
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const dotsContainer = document.querySelector('.dots-container');
-
-if (!track || slides.length === 0) {
-  // no slides / track -> salir para evitar errores
-  console.warn('Slider no inicializado: faltan elementos DOM (track o slides).');
-} else {
-
-  // --------- HEADER HELPERS ----------
-  function openElement(element) { element.classList.add('open'); }
-  function closeElement(element) { element.classList.remove('open'); }
-
-  // Cerrar overlay/elementos cuando se hace click fuera (mejor comparar con el elemento overlay)
-  window.addEventListener('click', (event) => {
-    if (event.target === overlay) {
-      closeElement(search);
-      closeElement(sidebar);
-      closeElement(overlay);
-    }
-  });
-
-  openSidebar.addEventListener('click', () => {
-    openElement(sidebar);
-    openElement(overlay); // abrir overlay también al abrir sidebar
-  });
-
-  closeSidebar.addEventListener('click', () => {
-    closeElement(sidebar);
-    closeElement(overlay);
-  });
-
-  openSearch.addEventListener('click', () => {
-    openElement(search);
-    openElement(overlay);
-  });
-
-  closeSearch.addEventListener('click', () => {
-    closeElement(search);
-    closeElement(overlay);
-  });
-
 
   // --------- SLIDER LOGIC ----------
   let currentIndex = 0; // corregido nombre
@@ -147,7 +102,7 @@ if (!track || slides.length === 0) {
   moveToSlide(0);
   updateDots();
   startAutoSlide();
-}
+
 
 
 // LIST OF PRODUCTS //

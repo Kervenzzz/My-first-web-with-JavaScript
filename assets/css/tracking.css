@@ -585,16 +585,6 @@ body{
         display: none;
     }
 
-    .nav-mobile-menu {
-        display: flex;
-    }
-
-    .mobile-nav-sidebar {
-        width: 100%;
-        left: -100%;
-        top: 80px;
-    }
-
     /* TRACKING RESPONSIVE */
     .tracking-title {
         font-size: var(--fs-xl);
@@ -659,7 +649,6 @@ body{
 }
 
 @media (max-width: 480px) {
-    /* NAV MOBILE */
     .header__nav-container {
         position: sticky;
         top: 0;
@@ -697,24 +686,6 @@ body{
 
     .nav-icon {
         font-size: 18px;
-    }
-
-    .mobile-nav-sidebar {
-        top: 70px;
-        padding: 16px;
-    }
-
-    .nav-sidebar-list {
-        gap: 10px;
-    }
-
-    .nav-sidebar-link {
-        padding: 10px 14px;
-        font-size: 13px;
-    }
-
-    .nav-sidebar-link i {
-        font-size: 16px;
     }
 
     /* TRACKING MOBILE */
