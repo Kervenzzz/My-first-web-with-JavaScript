@@ -1,0 +1,34 @@
+import { products } from "./products-data.js";
+
+export let cart = [];
+
+
+export function addToCart (btnProductId) {
+    // comprobando si existe el producto en el cart
+    let productMatching;
+
+    cart.forEach((productAndQuantity) => {
+      let productId = productAndQuantity.product.id;
+      if(btnProductId === productId){
+        productMatching = productAndQuantity;
+      }
+    });
+    
+    // si existe en el cart  incrementamos la cantidad
+    if(productMatching){
+      productMatching.quantity++
+    }else{
+      // si no existe en el cart, lo buscamos en products y lo agregamos al cart
+      let productFind
+      products.forEach((product) => {
+        if(btnProductId === product.id){
+          productFind = product;
+        }
+      })
+      cart.push({
+        product : productFind,
+        quantity : 1
+      })
+    }
+    
+  };

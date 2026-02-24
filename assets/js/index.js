@@ -1,5 +1,5 @@
-import { products } from './products-data.js';
-import { cart, addToCart } from './checkout.js';
+import { products } from '../data/products-data.js';
+import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
 
 initHeader();
@@ -127,7 +127,7 @@ products.forEach((product) => {
                 <div class="product-price">$${(product.priceCent / 100).toFixed(2)}</div>
                 <div class="product-quantity">
                     <label for="quantity-1">Quantity:</label>
-                    <select id="quantity-1" >
+                    <select class="js-quantity-selector" data-testid="quantity-selector" >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -152,9 +152,11 @@ const cartCount = document.querySelector('.cart-count');
 
 
 function updateCartCount (){
+  console.log(cart)
   let cartQuantity = 0;
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
+  cart.forEach((cartProductAndQuantity) => {
+    let productQuantity = cartProductAndQuantity.quantity;
+    cartQuantity += productQuantity;
   });
 
 
@@ -169,9 +171,11 @@ function updateCartCount (){
 
 document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
   btn.addEventListener('click', () => {
+    const cartQuantity = btn.closest('.js-quantity-selector');
+    console.log(cartQuantity)
     // adding to the cart
-    const productId = Number(btn.dataset.productId);
-    addToCart(productId)
+    const btnProductId = btn.dataset.productId;
+    addToCart(btnProductId)
 
     // recalcular el total correctamente
     updateCartCount()

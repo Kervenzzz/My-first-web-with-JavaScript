@@ -32,7 +32,6 @@ export function initHeader() {
   if (openSidebar && sidebar) {
     openSidebar.addEventListener('click', () => {
       openElement(sidebar);
-      if (overlay) openElement(overlay);
     });
   }
 

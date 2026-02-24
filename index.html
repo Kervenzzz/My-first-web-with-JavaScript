@@ -105,7 +105,7 @@
                         </div>
                         <!--SEARCH FORM-->
                         <form class="search-form" action="search">
-                            <input type="text" class="search-input" placeholder="Search for products..." />
+                            <input type="text" id="search" name="search" class="search-input" placeholder="Search for products..." />
                             <button type="submit" class="search-btn">
                                 <i class="ti ti-search"></i>
                             </button> 
@@ -212,40 +212,9 @@
             <section class="products-section">
                 <div class="container">
                     <h2 class="products-title">Featured Products</h2>
-                    <div class="products-grid js-products-grid">
-                            <img src="assets/image/drone1.jpeg" alt="4K Monitor" class="product-image">
-                            <div class="product-content">
-                                <h3 class="product-name">4K Monitor</h3>
-                                <div class="product-rating">
-                                    <div class="product-stars">
-                                        <span class="star-filled">★</span>
-                                        <span class="star-filled">★</span>
-                                        <span class="star-filled">★</span>
-                                        <span class="star-filled">★</span>
-                                        <span class="star-filled">★</span>
-                                    </div>
-                                    <span class="product-rating-count">(94)</span>
-                                </div>
-                                <div class="product-price">$599.99</div>
-                                <div class="product-quantity">
-                                    <label for="quantity-6">Quantity:</label>
-                                    <select id="quantity-6">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                                <button class="btn-add-cart">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
+
+                    <div class="products-grid js-products-grid"></div>
+
                 </div>
             </section>
         </main>

@@ -164,6 +164,8 @@
     background-color:#333;
     border-radius: 10px;
     padding: 10px;
+    position: sticky;
+    top: 0;
 }
 .summary-section{
     display: flex;
