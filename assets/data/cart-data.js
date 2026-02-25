@@ -1,6 +1,12 @@
 import { products } from "./products-data.js";
 
-export let cart = [];
+export let cart = [{
+  product : products[3],
+  quantity : 3
+}, {
+  product : products[1],
+  quantity : 3
+}];
 
 
 export function addToCart (btnProductId) {
@@ -31,4 +37,18 @@ export function addToCart (btnProductId) {
       })
     }
     
-  };
+};
+
+export function removeToCart (productId) {
+
+  let newCart = [];
+  cart.forEach((productAndQuantity) => {
+    let productCartId = productAndQuantity.product.id
+    if(productId !== productCartId){
+      newCart.push(productAndQuantity)
+    }
+  });
+
+  cart = newCart ;
+
+}

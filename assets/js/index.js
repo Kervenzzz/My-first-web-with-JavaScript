@@ -1,6 +1,7 @@
 import { products } from '../data/products-data.js';
 import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
+import { tofixedmoney } from './utiles/money.js';
 
 initHeader();
 
@@ -124,7 +125,7 @@ products.forEach((product) => {
                     </div>
                     <span class="product-rating-count">(${product.rating.count})</span>
                 </div>
-                <div class="product-price">$${(product.priceCent / 100).toFixed(2)}</div>
+                <div class="product-price">$${ tofixedmoney(product.priceCent) }</div>
                 <div class="product-quantity">
                     <label for="quantity-1">Quantity:</label>
                     <select class="js-quantity-selector" data-testid="quantity-selector" >
