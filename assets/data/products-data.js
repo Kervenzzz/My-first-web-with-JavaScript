@@ -1,6 +1,6 @@
 export let products = [
     {
-        id : crypto.randomUUID(),
+        id : '57f5e7d2-e5e0-40af-a5ab-99693f3dabc4',
         image : "assets/image/laptop1.jpeg",
         name : 'Gaming Laptop',
         rating : {
@@ -9,7 +9,7 @@ export let products = [
         },
         priceCent : '129999',
     }, {
-        id : crypto.randomUUID(),
+        id : '9f260fc6-1256-4c13-adb7-7b3b5877f321',
         image : "assets/image/canon1.jpeg",
         name : 'Camara Ultra Angular',
         rating : {
@@ -18,7 +18,7 @@ export let products = [
         },
         priceCent : '83000',
     },{
-        id : crypto.randomUUID(),
+        id : '58b07f4f-0dea-4721-bacf-a31a9534a315',
         image : "assets/image/drone1.jpeg",
         name : 'DJI mini Drone fast',
         rating : {
@@ -27,7 +27,7 @@ export let products = [
         },
         priceCent : '65000',
     },{
-        id : crypto.randomUUID(),
+        id : '16952997-0202-40a8-a0fe-c30ba41da213',
         image : "assets/image/jbl1.jpeg",
         name : 'Good sound JBL',
         rating : {

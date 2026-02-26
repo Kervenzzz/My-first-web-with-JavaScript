@@ -75,8 +75,8 @@ function renderCart () {
 
     let cartContainer = document.querySelector('.Cart-checkout-container');
     cartContainer.innerHTML = ProductsCheckoutHTML;
-
-    const deleteCartBtns = document.querySelectorAll('.js-remove-to-cart');
+    
+    let deleteCartBtns = document.querySelectorAll('.js-remove-to-cart');
     deleteCartBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
             console.log(btn)
@@ -85,9 +85,13 @@ function renderCart () {
             renderCart()
         })
     })
-}
 
-renderCart()
+}
+renderCart();
+
+
+
+
 
 
 

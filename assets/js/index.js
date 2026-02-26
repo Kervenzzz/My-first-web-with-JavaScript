@@ -128,7 +128,7 @@ products.forEach((product) => {
                 <div class="product-price">$${ tofixedmoney(product.priceCent) }</div>
                 <div class="product-quantity">
                     <label for="quantity-1">Quantity:</label>
-                    <select class="js-quantity-selector" data-testid="quantity-selector" >
+                    <select class="js-quantity-selector" data-select-id="${product.id}">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -172,10 +172,9 @@ function updateCartCount (){
 
 document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const cartQuantity = btn.closest('.js-quantity-selector');
-    console.log(cartQuantity)
     // adding to the cart
     const btnProductId = btn.dataset.productId;
+
     addToCart(btnProductId)
 
     // recalcular el total correctamente
@@ -183,3 +182,5 @@ document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
 
   });
 });
+
+

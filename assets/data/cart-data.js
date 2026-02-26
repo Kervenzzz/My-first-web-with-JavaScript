@@ -1,12 +1,16 @@
 import { products } from "./products-data.js";
 
-export let cart = [{
+export let cart = JSON.parse(localStorage.getItem('cart')) || [{
   product : products[3],
   quantity : 3
 }, {
   product : products[1],
   quantity : 3
 }];
+
+function saveCartToStorage () {
+  localStorage.setItem('cart',JSON.stringify(cart))
+}
 
 
 export function addToCart (btnProductId) {
@@ -35,7 +39,8 @@ export function addToCart (btnProductId) {
         product : productFind,
         quantity : 1
       })
-    }
+    };
+    saveCartToStorage()
     
 };
 
@@ -50,5 +55,6 @@ export function removeToCart (productId) {
   });
 
   cart = newCart ;
+  saveCartToStorage()
 
 }
