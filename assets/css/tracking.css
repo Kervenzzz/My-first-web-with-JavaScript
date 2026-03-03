@@ -215,9 +215,7 @@ body{
     align-items: center;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
+
 
 .timeline-item::before {
     content: '';

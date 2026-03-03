@@ -153,7 +153,6 @@ const cartCount = document.querySelector('.cart-count');
 
 
 function updateCartCount (){
-  console.log(cart)
   let cartQuantity = 0;
   cart.forEach((cartProductAndQuantity) => {
     let productQuantity = cartProductAndQuantity.quantity;

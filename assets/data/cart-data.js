@@ -2,10 +2,12 @@ import { products } from "./products-data.js";
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || [{
   product : products[3],
-  quantity : 3
+  quantity : 3,
+  deliveryOptionsId: '1'
 }, {
   product : products[1],
-  quantity : 3
+  quantity : 3,
+  deliveryOptionsId: '3'
 }];
 
 function saveCartToStorage () {
@@ -37,7 +39,8 @@ export function addToCart (btnProductId) {
       })
       cart.push({
         product : productFind,
-        quantity : 1
+        quantity : 1,
+        deliveryOptionsId: '1'
       })
     };
     saveCartToStorage()

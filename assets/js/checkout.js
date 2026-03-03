@@ -2,6 +2,8 @@ import { initHeader } from '../js/header.js';
 import { cart } from '../data/cart-data.js';
 import { tofixedmoney  } from './utiles/money.js';
 import { removeToCart } from '../data/cart-data.js';
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
 
 initHeader();
 
@@ -11,13 +13,15 @@ function renderCart () {
     let ProductsCheckoutHTML = '';
 
     cart.forEach((cartProductAndQuantity) => {
-        let { product, quantity } = cartProductAndQuantity;
+        let { product, quantity, deliveryOptionsId } = cartProductAndQuantity;
         let id = product.id;
+        const deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionsId);
+        const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
         ProductsCheckoutHTML += `
             <div class="cart-item">
 
                 <div class="left">
-                    <p>Delivery date: <span>Feb 15, 2026</span></p>
+                    <p>Delivery date: <span>  ${deliveryDate}</span></p>
 
                     <div class="cart-item-container">
                         <div class="item-image-container">
@@ -39,35 +43,8 @@ function renderCart () {
                 <div class="delivery-options">
                     <h3 class="section-subtitle">Choose Delivery Option</h3>
                     
-                    <div class="delivery-option">
-                        <input type="radio" id="standard" name="delivery-${id}" value="standard" checked>
-                        <label for="standard">
-                            <div class="option-header">
-                                <span class="option-title">Friday, February 20</span>
-                                <span class="option-price">FREE Shipping</span>
-                            </div>
-                        </label>
-                    </div>
+                    ${deliveryOptionsHTML(id, deliveryOptionsId)}
 
-                    <div class="delivery-option">
-                        <input type="radio" id="express" name="delivery-${id}" value="express">
-                        <label for="express">
-                            <div class="option-header">
-                                <span class="option-title">Monday, February 16</span>
-                                <span class="option-price">$9.99 - Shipping</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="delivery-option">
-                        <input type="radio" id="overnight" name="delivery-${id}" value="overnight">
-                        <label for="overnight">
-                            <div class="option-header">
-                                <span class="option-title">Thursday, February 12</span>
-                                <span class="option-price">$24.99 - Shipping</span>
-                            </div>
-                        </label>
-                    </div>
                 </div>
             </div>
         `
@@ -84,10 +61,38 @@ function renderCart () {
             removeToCart(id);
             renderCart()
         })
-    })
+    });
 
-}
+    function deliveryOptionsHTML (productId, deliveryOptionsId) {
+        let deliveryOptionsHTML = ''
+        deliveryOptions.forEach((deliveryOption) => {
+            const today = dayjs();
+            let { deliveryDays, priceCent, id} = deliveryOption ;
+            let isCheked = deliveryOptionsId === id ? 'checked' : '';
+            let priceString = priceCent === 0 ? 'FREE Shipping' : `$${tofixedmoney(priceCent)}`
+            let deliveryDate = today.add(deliveryDays, 'day').format('DD, MMM YYYY');
+    
+            deliveryOptionsHTML += `
+                <div class="delivery-option">
+                    <input type="radio" id="standard" name="delivery-${productId}" value="standard" ${isCheked}>
+                    <label for="standard">
+                        <div class="option-header">
+                            <span class="option-title">${deliveryDate}</span>
+                            <span class="option-price">${priceString}</span>
+                        </div>
+                    </label>
+                </div>
+            `
+            
+        });
+        return deliveryOptionsHTML;
+        
+    }
+
+};
+
 renderCart();
+
 
 
 
