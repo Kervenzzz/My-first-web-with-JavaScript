@@ -1,7 +1,6 @@
 import { initHeader } from '../js/header.js';
-import { cart } from '../data/cart-data.js';
+import { cart, removeToCart, updateDeliveryOptions } from '../data/cart-data.js';
 import { tofixedmoney  } from './utiles/money.js';
-import { removeToCart } from '../data/cart-data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
 
@@ -73,7 +72,9 @@ function renderCart () {
             let deliveryDate = today.add(deliveryDays, 'day').format('DD, MMM YYYY');
     
             deliveryOptionsHTML += `
-                <div class="delivery-option">
+                <div class="delivery-option js-delivery-option" 
+                data-delivery-option-id="${id}"
+                data-product-id="${productId}">
                     <input type="radio" id="standard" name="delivery-${productId}" value="standard" ${isCheked}>
                     <label for="standard">
                         <div class="option-header">
@@ -87,7 +88,16 @@ function renderCart () {
         });
         return deliveryOptionsHTML;
         
-    }
+    };
+    document.querySelectorAll('.js-delivery-option').forEach((option) => {
+        option.addEventListener('click', () =>{
+            let { deliveryOptionId, productId } = option.dataset;
+            updateDeliveryOptions(productId, deliveryOptionId);
+            renderCart()
+        })
+    })
+
+
 
 };
 
