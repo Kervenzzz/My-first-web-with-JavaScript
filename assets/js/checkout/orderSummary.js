@@ -2,7 +2,8 @@
 import { cart, removeToCart, updateDeliveryOptions } from '../../data/cart-data.js';
 import { tofixedmoney  } from '../utiles/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions, findDeliveryOption } from '../../data/deliveryOptions.js';
+import { paymentSummary } from './paymentSummary.js';
 
 
 export function renderCart () {
@@ -11,7 +12,7 @@ export function renderCart () {
     cart.forEach((cartProductAndQuantity) => {
         let { product, quantity, deliveryOptionsId } = cartProductAndQuantity;
         let id = product.id;
-        const deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionsId);
+        const deliveryOption = findDeliveryOption(deliveryOptionsId);
         const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
         ProductsCheckoutHTML += `
             <div class="cart-item">
@@ -92,7 +93,8 @@ export function renderCart () {
             updateDeliveryOptions(productId, deliveryOptionId);
             renderCart()
         })
-    })
+    });
 
+    paymentSummary()
 
 };
