@@ -108,78 +108,84 @@ const dotsContainer = document.querySelector('.dots-container');
 
 
 // LIST OF PRODUCTS //
+function renderProducts() {
+  const productsContainer = document.querySelector('.js-products-grid')
 
-const productsContainer = document.querySelector('.js-products-grid')
+  let productsHtml = '';
 
-let productsHtml = '';
-
-products.forEach((product) => {
-    productsHtml += `
-        <div class="product-card">
-            <img src="${product.image}">
-            <div class="product-content">
-                <h3 class="product-name">${product.name}</h3>
-                <div class="product-rating">
-                    <div class="product-stars">
-                        <img src="assets/image/rating-${product.rating.stars * 10}.png">
-                    </div>
-                    <span class="product-rating-count">(${product.rating.count})</span>
-                </div>
-                <div class="product-price">$${ tofixedmoney(product.priceCent) }</div>
-                <div class="product-quantity">
-                    <label for="quantity-1">Quantity:</label>
-                    <select class="js-quantity-selector" data-select-id="${product.id}">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-                <button class="btn-add-cart js-btn-add-cart " data-product-id='${product.id}'>Add to Cart</button>
-            </div>
-        </div>
-    `
-});
-
-productsContainer.innerHTML = productsHtml;
-
-const cartCount = document.querySelector('.cart-count');
-
-
-function updateCartCount (){
-  let cartQuantity = 0;
-  cart.forEach((cartProductAndQuantity) => {
-    let productQuantity = cartProductAndQuantity.quantity;
-    cartQuantity += productQuantity;
+  products.forEach((product) => {
+      productsHtml += `
+          <div class="product-card">
+              <img src="${product.image}">
+              <div class="product-content">
+                  <h3 class="product-name">${product.name}</h3>
+                  <div class="product-rating">
+                      <div class="product-stars">
+                          <img src="assets/image/rating-${product.rating.stars * 10}.png">
+                      </div>
+                      <span class="product-rating-count">(${product.rating.count})</span>
+                  </div>
+                  <div class="product-price">$${ tofixedmoney(product.priceCent) }</div>
+                  <div class="product-quantity">
+                      <label for="quantity-1">Quantity:</label>
+                      <select class="js-quantity-selectorId-${product.id}" >
+                          <option value="1" selected>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                      </select>
+                  </div>
+                  <button class="btn-add-cart js-btn-add-cart " data-product-id='${product.id}'>Add to Cart</button>
+              </div>
+          </div>
+      `
   });
 
 
-  if (cartQuantity > 0) {
-    cartCount.innerHTML = cartQuantity;
-    cartCount.style.display = 'block';
-  } else {
-    cartCount.style.display = 'none';
+  productsContainer.innerHTML = productsHtml;
+
+
+  function updateCartCount (){
+
+    const cartCount = document.querySelector('.cart-count');
+    let cartQuantity = 0;
+    cart.forEach((cartProductAndQuantity) => {
+      let productQuantity = cartProductAndQuantity.quantity;
+      cartQuantity += productQuantity;
+    });
+
+
+    if (cartQuantity > 0) {
+      cartCount.innerHTML = cartQuantity;
+      cartCount.style.display = 'block';
+    } else {
+      cartCount.style.display = 'none';
+    }
   }
-}
 
 
-document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    // adding to the cart
-    const btnProductId = btn.dataset.productId;
+  document.querySelectorAll('.js-btn-add-cart').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // adding to the cart
+      const btnProductId = btn.dataset.productId;
+      const quantitySelector = document.querySelector(`.js-quantity-selectorId-${btnProductId}`);
+      let quantity = Number(quantitySelector.value);
 
-    addToCart(btnProductId)
+      addToCart(btnProductId,quantity)
 
-    // recalcular el total correctamente
-    updateCartCount()
+      // recalcular el total correctamente
+      updateCartCount()
 
+    });
   });
-});
+  updateCartCount()
 
+};
 
+renderProducts()

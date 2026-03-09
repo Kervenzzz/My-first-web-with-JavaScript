@@ -146,6 +146,7 @@
 .cart-action {
     display: flex;
     gap: 10px;
+    flex-direction: column;
 }
 .cart-action  span{
     color: var(--color-primary);
@@ -154,6 +155,28 @@
 } 
 .cart-action span:hover{
     color: #f23;
+}
+.new-quantity-container{
+    display: flex;
+    gap: 10px ;
+}
+.is-hidden{
+    display: none;
+}
+
+
+.new-quantity-container button{
+    color: var(--color-primary);
+    transition: color .3s;
+}
+.new-quantity-container button:hover{
+    color: #f23;
+}
+
+
+.new-quantity-input{
+    width: 50px;
+    color: #0F1724;
 }
     
 
@@ -284,6 +307,7 @@
         width: 100%;
     }
 
+    
     .detail-row {
         flex-direction: column;
         align-items: flex-start;
@@ -330,6 +354,7 @@
         width: 100px;
         height: 100px;
     }
+    
 }
 
 /* FOOTER STYLES */

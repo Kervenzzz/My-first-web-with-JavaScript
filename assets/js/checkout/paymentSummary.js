@@ -78,7 +78,6 @@ export function paymentSummary () {
         </div>  
     
     `
-    console.log(paymentSummaryHTML)
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
 }

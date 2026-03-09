@@ -1,5 +1,5 @@
 
-import { cart, removeToCart, updateDeliveryOptions } from '../../data/cart-data.js';
+import { cart, removeToCart, updateDeliveryOptions,  updateCartQuantity } from '../../data/cart-data.js';
 import { tofixedmoney  } from '../utiles/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, findDeliveryOption } from '../../data/deliveryOptions.js';
@@ -15,7 +15,7 @@ export function renderCart () {
         const deliveryOption = findDeliveryOption(deliveryOptionsId);
         const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
         ProductsCheckoutHTML += `
-            <div class="cart-item">
+            <div class="cart-item js-cart-item" data-product-id="${id}">
 
                 <div class="left">
                     <p>Delivery date: <span>  ${deliveryDate}</span></p>
@@ -28,10 +28,14 @@ export function renderCart () {
                         <div class="item-content">
                             <h3>${product.name}</h3>
                             <p class="price">$${tofixedmoney(product.priceCent)  }</p>
-                            <p>Quantity: ${quantity}</p>
+                            <p class="js-quantity">Quantity: ${quantity}</p>
                             <div class="cart-action">
-                                <span class="js-update-to-cart">Update</span>
-                                <span class="js-remove-to-cart" data-product="${id}">Delete</span>
+                                <span class="js-update-btn" >Update </span>
+                                <div class="new-quantity-container is-hidden">
+                                    <input class=" new-quantity-input js-new-quantity" type="number" value="${quantity}" />
+                                    <button type="sumbit" class="save-quantity-btn js-save-quantity ">Save</button>
+                                </div>
+                                <span class="js-remove-to-cart" >Delete</span>
                             </div>
                         </div>
                     </div>
@@ -47,18 +51,40 @@ export function renderCart () {
         `
     });
 
-    let cartContainer = document.querySelector('.Cart-checkout-container');
+    const cartContainer = document.querySelector('.Cart-checkout-container');
     cartContainer.innerHTML = ProductsCheckoutHTML;
-    
-    let deleteCartBtns = document.querySelectorAll('.js-remove-to-cart');
-    deleteCartBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            console.log(btn)
-            let id = btn.dataset.product;
+
+
+
+    cartContainer.addEventListener('click', (e) => {
+
+        const cartItem = e.target.closest('.js-cart-item');
+        if(!cartItem){
+            return;
+        };
+        const newQuantityContainer = cartItem.querySelector('.new-quantity-container');
+        const updateBtn = cartItem.querySelector('.js-update-btn');
+        const id = cartItem.dataset.productId;
+
+         if(e.target.matches('.js-update-btn')){
+            showNewQuatity(e, newQuantityContainer);
+        }else if(e.target.matches('.js-save-quantity')){
+            updateCartQuantity(updateBtn,cartItem, newQuantityContainer);
+        }else if (e.target.matches('.js-remove-to-cart')){
             removeToCart(id);
-            renderCart()
-        })
+            paymentSummary();
+            cartItem.remove()
+        }
     });
+
+    function showNewQuatity (e, newQuantityContainer ) {
+
+        e.target.classList.add('is-hidden');
+        newQuantityContainer.classList.remove('is-hidden');
+      
+      }
+    
+    
 
     function deliveryOptionsHTML (productId, deliveryOptionsId) {
         let deliveryOptionsHTML = ''

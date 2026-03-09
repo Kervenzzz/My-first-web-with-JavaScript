@@ -1,3 +1,4 @@
+import { paymentSummary } from "../js/checkout/paymentSummary.js";
 import { products } from "./products-data.js";
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || [{
@@ -15,7 +16,7 @@ function saveCartToStorage () {
 }
 
 
-export function addToCart (btnProductId) {
+export function addToCart (btnProductId, productQuantity) {
     // comprobando si existe el producto en el cart
     let productMatching;
 
@@ -28,7 +29,7 @@ export function addToCart (btnProductId) {
     
     // si existe en el cart  incrementamos la cantidad
     if(productMatching){
-      productMatching.quantity++
+      productMatching.quantity += productQuantity;
     }else{
       // si no existe en el cart, lo buscamos en products y lo agregamos al cart
       let productFind
@@ -39,8 +40,8 @@ export function addToCart (btnProductId) {
       })
       cart.push({
         product : productFind,
-        quantity : 1,
-        deliveryOptionsId: '3'
+        quantity : productQuantity ,
+        deliveryOptionsId: '1'
       })
     };
     saveCartToStorage()
@@ -58,7 +59,8 @@ export function removeToCart (productId) {
   });
 
   cart = newCart ;
-  saveCartToStorage()
+  saveCartToStorage();
+
 
 }
 
@@ -73,4 +75,25 @@ export function updateDeliveryOptions (productId, deliveryOptionsId){
   });
   productMatching.deliveryOptionsId = deliveryOptionsId;
   saveCartToStorage()
+}
+export function findCartOption (cartId) {
+  const CartOption = cart.find( Option => Option.product.id === cartId  );
+  return CartOption
+}
+
+
+export function updateCartQuantity (updateBtn, cartItem, newQuantityContainer) {
+
+  const texQuatity = cartItem.querySelector('.js-quantity');
+  const id = cartItem.dataset.productId;
+  const newQuantity = cartItem.querySelector('.js-new-quantity').value ;
+  console.log(newQuantity)
+  const cartOption = findCartOption(id);
+  cartOption.quantity = Number(newQuantity) ;
+
+  texQuatity.textContent = newQuantity
+  newQuantityContainer.classList.toggle('is-hidden');
+  updateBtn.classList.toggle('is-hidden');
+  saveCartToStorage();
+  paymentSummary();
 }
