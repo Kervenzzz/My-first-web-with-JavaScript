@@ -1,15 +1,21 @@
 import { paymentSummary } from "../js/checkout/paymentSummary.js";
 import { products } from "./products-data.js";
 
-export let cart = JSON.parse(localStorage.getItem('cart')) || [{
-  product : products[3],
-  quantity : 3,
-  deliveryOptionsId: '1'
-}, {
-  product : products[1],
-  quantity : 3,
-  deliveryOptionsId: '3'
-}];
+export let cart;
+
+laodFromStorage();
+
+export function laodFromStorage() {
+  cart = JSON.parse(localStorage.getItem('cart')) || [{
+    product : products[3],
+    quantity : 3,
+    deliveryOptionsId: '1'
+  }, {
+    product : products[1],
+    quantity : 3,
+    deliveryOptionsId: '3'
+  }];
+}
 
 function saveCartToStorage () {
   localStorage.setItem('cart',JSON.stringify(cart))
@@ -40,7 +46,7 @@ export function addToCart (btnProductId, productQuantity) {
       })
       cart.push({
         product : productFind,
-        quantity : productQuantity ,
+        quantity : productQuantity || 1 ,
         deliveryOptionsId: '1'
       })
     };
