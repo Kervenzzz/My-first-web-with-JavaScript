@@ -1,4 +1,4 @@
-import { tofixedmoney } from "../js/utiles/money.js";
+import { tofixedmoney } from "../../../assets/js/utiles/money.js";
 
 describe('test suite: toFixedMoney', () => {
     it('convert cent into dollars', () => {
