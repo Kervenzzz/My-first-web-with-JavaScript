@@ -5,13 +5,20 @@ import { products } from "../../assets/data/products-data.js";
 describe('test suite: addtoCart', () => {
     it('adds an existing product to the cart', () => {
         spyOn(localStorage, 'getItem').and.callFake(() => {
-            return JSON.stringify([])
+            return JSON.stringify([{
+                product : products[1],
+                quantity : 3,
+                deliveryOptionsId: '1'
+              }
+
+            ])
         });
         laodFromStorage();
-        console.log(cart)
-        addToCart('9f260fc6-1256-4c13-adb7-7b3b5877f321',3);
+        addToCart('9f260fc6-1256-4c13-adb7-7b3b5877f321',1);
 
         expect(cart.length).toEqual(1)
+
+        expect(cart[0].quantity).toEqual(4)
     })
 })
 
