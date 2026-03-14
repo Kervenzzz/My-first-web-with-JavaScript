@@ -8,15 +8,15 @@ import { products } from "./products-data.js";
 class Cart  {
     
     cartItem ;
-    localStorageKey ;
+    #localStorageKey ;
 
     constructor(localStorageKey) {
-        this.localStorageKey = localStorageKey;
-        this.laodFromStorage()
+        this.#localStorageKey = localStorageKey;
+        this.#laodFromStorage()
     }
 
-    laodFromStorage() {
-        this.cartItem = JSON.parse(localStorage.getItem(this.localStorageKey)) || [{
+    #laodFromStorage() {
+        this.cartItem = JSON.parse(localStorage.getItem(this.#localStorageKey)) || [{
             product : products[3],
             quantity : 3,
             deliveryOptionsId: '1'
@@ -28,7 +28,7 @@ class Cart  {
     }
 
     saveCartToStorage () {
-        localStorage.setItem(this.laodFromStorage,JSON.stringify(this.cartItem))
+        localStorage.setItem(this.#localStorageKey,JSON.stringify(this.cartItem))
     }
 
     addToCart (btnProductId, productQuantity) {
@@ -107,7 +107,7 @@ const cart = new Cart('cartOOP');
 
 const businessCart = new Cart('businessCart');
 
-businessCart.addToCart(products[0].id,32)
+businessCart.addToCart(products[0].id,32);
 
 console.log(cart);
 console.log(businessCart);
