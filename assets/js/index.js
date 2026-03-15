@@ -1,7 +1,6 @@
 import { products } from '../data/products-data.js';
 import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
-import { tofixedmoney } from './utiles/money.js';
 
 initHeader();
 
@@ -121,11 +120,11 @@ function renderProducts() {
                   <h3 class="product-name">${product.name}</h3>
                   <div class="product-rating">
                       <div class="product-stars">
-                          <img src="assets/image/rating-${product.rating.stars * 10}.png">
+                          <img src="${product.getStarURL()}">
                       </div>
                       <span class="product-rating-count">(${product.rating.count})</span>
                   </div>
-                  <div class="product-price">$${ tofixedmoney(product.priceCent) }</div>
+                  <div class="product-price">${product.getPrice()}</div>
                   <div class="product-quantity">
                       <label for="quantity-1">Quantity:</label>
                       <select class="js-quantity-selectorId-${product.id}" >
@@ -155,8 +154,8 @@ function renderProducts() {
 
     const cartCount = document.querySelector('.cart-count');
     let cartQuantity = 0;
-    cart.forEach((cartProductAndQuantity) => {
-      let productQuantity = cartProductAndQuantity.quantity;
+    cart.forEach((cartItem) => {
+      let productQuantity = cartItem.quantity;
       cartQuantity += productQuantity;
     });
 
@@ -175,7 +174,7 @@ function renderProducts() {
       // adding to the cart
       const btnProductId = btn.dataset.productId;
       const quantitySelector = document.querySelector(`.js-quantity-selectorId-${btnProductId}`);
-      let quantity = Number(quantitySelector.value);
+      const quantity = Number(quantitySelector.value);
 
       addToCart(btnProductId,quantity)
 

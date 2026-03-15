@@ -12,7 +12,7 @@ describe('test suite: renderOrderSummary', () => {
          
         spyOn(localStorage, 'getItem').and.callFake(() => {
             return JSON.stringify([{
-                product : products[3],
+                product : products[3].id,
                 quantity : 3,
                 deliveryOptionsId: '1'
             }])

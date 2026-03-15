@@ -1,6 +1,7 @@
 import { cart } from "../../data/cart-data.js";
-import { deliveryOptions,findDeliveryOption } from "../../data/deliveryOptions.js";
+import { findDeliveryOption } from "../../data/deliveryOptions.js";
 import { tofixedmoney } from "../utiles/money.js";
+import { findProduct } from "../../data/products-data.js";
 
 export function paymentSummary () {
     let paymentSummaryHTML = '';
@@ -10,9 +11,10 @@ export function paymentSummary () {
     let totalBeforeTaxCents = 0;
     let taxCents = 0;
     let orderTotalCents = 0 ;
-    cart.forEach((productQuantityDeliveryOp) => {
-        let { quantity, deliveryOptionsId, product } = productQuantityDeliveryOp;
-        let deliveryOptions = findDeliveryOption(deliveryOptionsId);
+    cart.forEach((cartItem) => {
+        const { quantity, deliveryOptionsId, productId } = cartItem;
+        const deliveryOptions = findDeliveryOption(deliveryOptionsId);
+        const product = findProduct(productId)
 
         itemsQuantity += quantity;
         subtotalCents += product.priceCent * quantity;

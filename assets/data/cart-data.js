@@ -1,5 +1,4 @@
 import { paymentSummary } from "../js/checkout/paymentSummary.js";
-import { products } from "./products-data.js";
 
 export let cart;
 
@@ -7,11 +6,11 @@ laodFromStorage();
 
 export function laodFromStorage() {
   cart = JSON.parse(localStorage.getItem('cart')) || [{
-    product : products[3],
+    productId :'9f260fc6-1256-4c13-adb7-7b3b5877f321',
     quantity : 3,
     deliveryOptionsId: '1'
   }, {
-    product : products[1],
+    productId :'58b07f4f-0dea-4721-bacf-a31a9534a315',
     quantity : 3,
     deliveryOptionsId: '3'
   }];
@@ -24,28 +23,16 @@ function saveCartToStorage () {
 
 export function addToCart (btnProductId, productQuantity) {
     // comprobando si existe el producto en el cart
-    let productMatching;
+    const cartMatching = findCartOption(btnProductId);
 
-    cart.forEach((productAndQuantity) => {
-      let productId = productAndQuantity.product.id;
-      if(btnProductId === productId){
-        productMatching = productAndQuantity;
-      }
-    });
-    
     // si existe en el cart  incrementamos la cantidad
-    if(productMatching){
-      productMatching.quantity += productQuantity;
+    if(cartMatching){
+      cartMatching.quantity += productQuantity;
     }else{
       // si no existe en el cart, lo buscamos en products y lo agregamos al cart
-      let productFind
-      products.forEach((product) => {
-        if(btnProductId === product.id){
-          productFind = product;
-        }
-      })
+    
       cart.push({
-        product : productFind,
+        productId : btnProductId,
         quantity : productQuantity || 1 ,
         deliveryOptionsId: '1'
       })
@@ -57,10 +44,10 @@ export function addToCart (btnProductId, productQuantity) {
 export function removeToCart (productId) {
 
   let newCart = [];
-  cart.forEach((productAndQuantity) => {
-    let productCartId = productAndQuantity.product.id
-    if(productId !== productCartId){
-      newCart.push(productAndQuantity)
+  cart.forEach((cartItem) => {
+    const itemId = cartItem.productId
+    if(productId !== itemId){
+      newCart.push(cartItem)
     }
   });
 
@@ -71,19 +58,14 @@ export function removeToCart (productId) {
 }
 
 export function updateDeliveryOptions (productId, deliveryOptionsId){
-  let productMatching;
+  let productMatching = findCartOption(productId)
 
-  cart.forEach((productAndQuantity) => {
-    let cartProductId = productAndQuantity.product.id;
-    if(productId === cartProductId){
-      productMatching = productAndQuantity;
-    }
-  });
   productMatching.deliveryOptionsId = deliveryOptionsId;
   saveCartToStorage()
 }
+
 export function findCartOption (cartId) {
-  const CartOption = cart.find( Option => Option.product.id === cartId  );
+  const CartOption = cart.find( Option => Option.productId === cartId  );
   return CartOption
 }
 
@@ -93,7 +75,6 @@ export function updateCartQuantity (updateBtn, cartItem, newQuantityContainer) {
   const texQuatity = cartItem.querySelector('.js-quantity');
   const id = cartItem.dataset.productId;
   const newQuantity = cartItem.querySelector('.js-new-quantity').value ;
-  console.log(newQuantity)
   const cartOption = findCartOption(id);
   cartOption.quantity = Number(newQuantity) ;
 

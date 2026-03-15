@@ -4,18 +4,23 @@ import { tofixedmoney  } from '../utiles/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, findDeliveryOption } from '../../data/deliveryOptions.js';
 import { paymentSummary } from './paymentSummary.js';
+import {  findProduct } from '../../data/products-data.js';
+
+console.log(cart)
 
 
 export function renderCart () {
     let ProductsCheckoutHTML = '';
 
-    cart.forEach((cartProductAndQuantity) => {
-        let { product, quantity, deliveryOptionsId } = cartProductAndQuantity;
-        let id = product.id;
+    cart.forEach((cartItem) => {
+        const { productId, quantity, deliveryOptionsId } = cartItem;
+        const product = findProduct(productId);
+        
+        
         const deliveryOption = findDeliveryOption(deliveryOptionsId);
         const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
         ProductsCheckoutHTML += `
-            <div class="cart-item js-cart-item" data-product-id="${id}">
+            <div class="cart-item js-cart-item" data-product-id="${productId}">
 
                 <div class="left">
                     <p>Delivery date: <span>  ${deliveryDate}</span></p>
@@ -27,7 +32,7 @@ export function renderCart () {
 
                         <div class="item-content">
                             <h3>${product.name}</h3>
-                            <p class="price">$${tofixedmoney(product.priceCent)  }</p>
+                            <p class="price">${product.getPrice() }</p>
                             <p class="js-quantity">Quantity: ${quantity}</p>
                             <div class="cart-action">
                                 <span class="js-update-btn" >Update </span>
@@ -44,7 +49,7 @@ export function renderCart () {
                 <div class="delivery-options">
                     <h3 class="section-subtitle">Choose Delivery Option</h3>
                     
-                    ${deliveryOptionsHTML(id, deliveryOptionsId)}
+                    ${deliveryOptionsHTML(productId, deliveryOptionsId)}
 
                 </div>
             </div>
