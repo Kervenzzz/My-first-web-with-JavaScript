@@ -115,7 +115,7 @@ function renderProducts() {
   products.forEach((product) => {
       productsHtml += `
           <div class="product-card">
-              <img src="${product.image}">
+              <img src="${product.image} " class="product-image">
               <div class="product-content">
                   <h3 class="product-name">${product.name}</h3>
                   <div class="product-rating">
@@ -140,6 +140,7 @@ function renderProducts() {
                           <option value="10">10</option>
                       </select>
                   </div>
+                  ${product.extraInfo()}
                   <button class="btn-add-cart js-btn-add-cart " data-product-id='${product.id}'>Add to Cart</button>
               </div>
           </div>

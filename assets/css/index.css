@@ -541,6 +541,7 @@
     height: auto;
     object-fit: cover;
     background-color: var(--surface-1);
+    max-height: 150px;
 }
 
 .product-content {
@@ -608,6 +609,13 @@
     color: #fff;
 }
 
+.product-card a {
+    color: lawngreen;
+}
+.product-card a:hover{
+    text-decoration: underline;
+}
+
 .btn-add-cart {
     width: 100%;
     padding: var(--spacing-sm);
@@ -619,6 +627,7 @@
     font-weight: var(--fw-600);
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
 .btn-add-cart:hover {

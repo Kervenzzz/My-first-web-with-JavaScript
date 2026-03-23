@@ -23,8 +23,28 @@ class Product {
         return `assets/image/rating-${this.rating.stars * 10}.png`
     }
 
+    extraInfo(){
+        return ''
+    }
 
+};
+
+class Clothing extends Product {
+    sizeChartlink;
+
+    constructor(productDetails){
+        super(productDetails);
+        this.sizeChartlink = productDetails.sizeChartlink;
+    }
+
+    extraInfo() {
+        return `
+            <a href="${this.sizeChartlink}" target='blank'>Size Chart</a>
+        `
+    }
+    
 }
+
 
 export let products = [
     {
@@ -63,8 +83,33 @@ export let products = [
             count : '1200'
         },
         priceCent : '43599',
+    },{
+        id : '16952997-0202-40a8-a0fe-a41da213',
+        image : "assets/image/t-shirt.jpg",
+        name : 'T-shirt white',
+        rating : {
+            stars : '4.5' ,
+            count : '330'
+        },
+        priceCent : '9999',
+        type : 'clothing',
+        sizeChartlink : 'assets/image/size-chart-link.webp'
+    },{
+        id : '16952997-0202-40a8-a0fe-a41da213',
+        image : "assets/image/tshirt.jpg",
+        name : 'Cool Tshirt',
+        rating : {
+            stars : '5' ,
+            count : '530'
+        },
+        priceCent : '14999',
+        type : 'clothing',
+        sizeChartlink : 'assets/image/size-chart-link.webp'
     }
 ].map((productDetails) => {
+    if(productDetails.type === 'clothing'){
+        return new Clothing(productDetails)
+    }
     return new   Product(productDetails);
 });
 

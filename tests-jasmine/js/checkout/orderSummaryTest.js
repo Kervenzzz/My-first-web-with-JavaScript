@@ -1,5 +1,5 @@
 import { renderCart } from "../../../assets/js/checkout/orderSummary.js";
-import { laodFromStorage} from "../../../assets/data/cart-data.js";
+import { cart, laodFromStorage} from "../../../assets/data/cart-data.js";
 import { products } from "../../../assets/data/products-data.js";
 
 describe('test suite: renderOrderSummary', () => {
@@ -19,6 +19,8 @@ describe('test suite: renderOrderSummary', () => {
         });
 
         laodFromStorage();
+
+        console.log(cart)
         renderCart();
     })
 } )

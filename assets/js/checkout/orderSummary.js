@@ -6,7 +6,6 @@ import { deliveryOptions, findDeliveryOption } from '../../data/deliveryOptions.
 import { paymentSummary } from './paymentSummary.js';
 import {  findProduct } from '../../data/products-data.js';
 
-console.log(cart)
 
 
 export function renderCart () {
