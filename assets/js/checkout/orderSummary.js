@@ -11,6 +11,8 @@ import {  findProduct } from '../../data/products-data.js';
 export function renderCart () {
     let ProductsCheckoutHTML = '';
 
+    
+
     cart.forEach((cartItem) => {
         const { productId, quantity, deliveryOptionsId } = cartItem;
         const product = findProduct(productId);
