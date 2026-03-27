@@ -6,11 +6,11 @@ laodFromStorage();
 
 export function laodFromStorage() {
   cart = JSON.parse(localStorage.getItem('cart')) || [{
-    productId :'9f260fc6-1256-4c13-adb7-7b3b5877f321',
+    productId :'3ebe75dc-64d2-4137-8860-1f5a963e534b',
     quantity : 3,
     deliveryOptionsId: '1'
   }, {
-    productId :'58b07f4f-0dea-4721-bacf-a31a9534a315',
+    productId :"8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
     quantity : 3,
     deliveryOptionsId: '3'
   }];

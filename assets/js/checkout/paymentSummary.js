@@ -17,7 +17,7 @@ export function paymentSummary () {
         const product = findProduct(productId)
 
         itemsQuantity += quantity;
-        subtotalCents += product.priceCent * quantity;
+        subtotalCents += product.priceCents * quantity;
         shippingCents += deliveryOptions.priceCent
     });
     totalBeforeTaxCents = subtotalCents + shippingCents;

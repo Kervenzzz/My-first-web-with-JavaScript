@@ -5,22 +5,22 @@ class Product {
     image;
     name;
     rating;
-    priceCent;
+    priceCents;
 
     constructor(productDetails){
         this.id = productDetails.id;
         this.image = productDetails.image;
         this.name = productDetails.name;
         this.rating = productDetails.rating;
-        this.priceCent = productDetails.priceCent
+        this.priceCents = productDetails.priceCents
     }
 
     getPrice () {
-        return `$${ tofixedmoney(this.priceCent) }`
+        return `$${ tofixedmoney(this.priceCents) }`
     }
 
     getStarURL () {
-        return `assets/image/rating-${this.rating.stars * 10}.png`
+        return `images/ratings/rating-${this.rating.stars * 10}.png`
     }
 
     extraInfo(){
@@ -39,14 +39,43 @@ class Clothing extends Product {
 
     extraInfo() {
         return `
-            <a href="${this.sizeChartlink}" target='blank'>Size Chart</a>
+            <a href="${this.sizeChartlink}" target='blank' class="product-type">Size Chart</a>
         `
     }
     
 }
 
 
-export let products = [
+
+export let products = [];
+
+export function loadProductsBackend (fun) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', () => {
+
+        products = JSON.parse(xhr.response).map((productDetails) => {
+            if(productDetails.type === 'clothing'){
+                return new Clothing(productDetails)
+            }
+            return new Product(productDetails)
+        });
+
+        fun()
+    })
+
+    xhr.open('GET', 'https://supersimplebackend.dev/products');
+    xhr.send();
+
+    
+
+    
+}
+
+
+
+
+/*export let products = [
     {
         id : '57f5e7d2-e5e0-40af-a5ab-99693f3dabc4',
         image : "assets/image/laptop1.jpeg",
@@ -111,7 +140,7 @@ export let products = [
         return new Clothing(productDetails)
     }
     return new   Product(productDetails);
-});
+});*/
 
 export function findProduct (producId) {
     const product = products.find(product => product.id === producId );

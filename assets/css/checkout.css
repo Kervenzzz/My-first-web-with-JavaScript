@@ -117,19 +117,21 @@
 .item-image-container {
     position: relative;
     max-width: 250px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    min-width: 200px;
 }
 
 .item-image {
-    width: 100%;
     object-fit: cover ;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--border-color);
-    transition: all 0.3s ease;
+    height: 100px;
 }
 
-.cart-item:hover .item-image {
-    border-color: var(--color-primary);
-}
+
 
 
 

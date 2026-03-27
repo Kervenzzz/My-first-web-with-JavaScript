@@ -1,6 +1,8 @@
-import { products } from '../data/products-data.js';
+import { products, loadProductsBackend } from '../data/products-data.js';
 import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
+
+loadProductsBackend(renderProducts);
 
 initHeader();
 
@@ -115,7 +117,9 @@ function renderProducts() {
   products.forEach((product) => {
       productsHtml += `
           <div class="product-card">
+            <div class="card-image-container">
               <img src="${product.image} " class="product-image">
+            </div>
               <div class="product-content">
                   <h3 class="product-name">${product.name}</h3>
                   <div class="product-rating">
@@ -146,6 +150,7 @@ function renderProducts() {
           </div>
       `
   });
+
 
 
   productsContainer.innerHTML = productsHtml;
@@ -188,4 +193,4 @@ function renderProducts() {
 
 };
 
-renderProducts()
+
