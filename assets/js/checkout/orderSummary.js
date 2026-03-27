@@ -8,6 +8,8 @@ import {  findProduct } from '../../data/products-data.js';
 
 
 
+
+
 export function renderCart () {
     let ProductsCheckoutHTML = '';
 
@@ -16,7 +18,6 @@ export function renderCart () {
     cart.forEach((cartItem) => {
         const { productId, quantity, deliveryOptionsId } = cartItem;
         const product = findProduct(productId);
-        
         
         const deliveryOption = findDeliveryOption(deliveryOptionsId);
         const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
@@ -127,6 +128,5 @@ export function renderCart () {
         })
     });
 
-    paymentSummary()
 
 };

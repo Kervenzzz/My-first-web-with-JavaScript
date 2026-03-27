@@ -84,3 +84,25 @@ export function updateCartQuantity (updateBtn, cartItem, newQuantityContainer) {
   saveCartToStorage();
   paymentSummary();
 }
+
+
+let cartBackend;
+
+export function loadCartBackend (fun) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', () => {
+
+      cartBackend = xhr.response;
+      console.log(cartBackend
+        
+      )
+
+      fun()
+  })
+
+  xhr.open('GET', 'https://supersimplebackend.dev/cart');
+  xhr.send();
+
+
+}
