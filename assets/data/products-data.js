@@ -59,6 +59,8 @@ export function loadProductFetch () {
         });
     });
 
+    console.log('load product')
+
     return promise
 } 
 

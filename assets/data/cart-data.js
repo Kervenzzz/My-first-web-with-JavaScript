@@ -94,10 +94,7 @@ export function loadCartBackend (fun) {
   xhr.addEventListener('load', () => {
 
       cartBackend = xhr.response;
-      console.log(cartBackend
-        
-      )
-
+      console.log(cartBackend)
       fun()
   })
 

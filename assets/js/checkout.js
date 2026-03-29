@@ -9,8 +9,25 @@ import { loadCartBackend } from '../data/cart-data.js';
 
 initHeader();
 
+async function loadPage() {
+    await loadProductFetch();
+
+    await new Promise((resolve) => {
+        loadCartBackend(() => {
+            resolve()
+        })
+    });
+
+    console.log('display the page')
+    renderCart();
+    paymentSummary();
+
+}
+
+loadPage()
 
 
+/*
 
 Promise.all([
     loadProductFetch(),
@@ -28,7 +45,7 @@ Promise.all([
     console.log('render the HTML')
     console.log(value[1])
 })
-
+*/
 
 /*
 new Promise((resolve) => {
