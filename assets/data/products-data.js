@@ -43,11 +43,33 @@ class Clothing extends Product {
         `
     }
     
-}
-
-
+};
 
 export let products = [];
+
+export function loadProductFetch () {
+    let promise = fetch('https://supersimplebackend.dev/products').then((response) => {
+        return response.json()
+    }).then((value) => {
+        products = value.map((productDetails) => {
+            if(productDetails.type === 'clothing'){
+                return new Clothing(productDetails)
+            }
+            return new Product(productDetails)
+        });
+    });
+
+    return promise
+} 
+
+/*
+loadProductFetch().then(() => {
+
+})
+*/
+
+
+
 
 export function loadProductsBackend (fun) {
     const xhr = new XMLHttpRequest();
@@ -66,9 +88,6 @@ export function loadProductsBackend (fun) {
 
     xhr.open('GET', 'https://supersimplebackend.dev/products');
     xhr.send();
-
-    
-
     
 }
 
@@ -91,7 +110,7 @@ export function loadProductsBackend (fun) {
         name : 'Camara Ultra Angular',
         rating : {
             stars : '4' ,
-            count : '808'
+            count : '808' 
         },
         priceCent : '83000',
     },{

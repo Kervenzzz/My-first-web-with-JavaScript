@@ -1,21 +1,19 @@
 import { initHeader } from '../js/header.js';
 import { renderCart } from './checkout/orderSummary.js';
-import { loadProductsBackend } from '../data/products-data.js';
+import { loadProductsBackend, loadProductFetch } from '../data/products-data.js';
 import { paymentSummary } from './checkout/paymentSummary.js';
 import { loadCartBackend } from '../data/cart-data.js';
 
 //import '../data/cartDataClass.js'
 //import '../data/backendPractice.js'
 
+initHeader();
+
+
+
 
 Promise.all([
-    new Promise((resolve) => {
-        loadProductsBackend(() => {
-            resolve('hola')
-        })
-
-        console.log('load product')
-    }),
+    loadProductFetch(),
 
     new Promise((resolve) => {
         loadCartBackend(() => {

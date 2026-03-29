@@ -1,8 +1,10 @@
-import { products, loadProductsBackend } from '../data/products-data.js';
+import { products, loadProductsBackend, loadProductFetch } from '../data/products-data.js';
 import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
 
-loadProductsBackend(renderProducts);
+loadProductFetch().then(() => {
+  renderProducts()
+})
 
 initHeader();
 

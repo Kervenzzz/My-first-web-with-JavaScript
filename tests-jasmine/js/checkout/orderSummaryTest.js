@@ -1,12 +1,12 @@
 import { renderCart } from "../../../assets/js/checkout/orderSummary.js";
-import { cart, laodFromStorage} from "../../../assets/data/cart-data.js";
-import { products, loadProductsBackend } from "../../../assets/data/products-data.js";
+import {  laodFromStorage} from "../../../assets/data/cart-data.js";
+import { products, loadProductsBackend, loadProductFetch } from "../../../assets/data/products-data.js";
 
 describe('test suite: renderOrderSummary', () => {
 
     
     beforeAll((done) => {
-        loadProductsBackend(() => {
+        loadProductFetch().then(() => {
             done()
         })
     })
