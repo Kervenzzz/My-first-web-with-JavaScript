@@ -2,6 +2,7 @@ import { cart } from "../../data/cart-data.js";
 import { findDeliveryOption } from "../../data/deliveryOptions.js";
 import { tofixedmoney } from "../utiles/money.js";
 import { findProduct } from "../../data/products-data.js";
+import { addOrder } from "../../data/order.js";
 
 export function paymentSummary () {
     let paymentSummaryHTML = '';
@@ -12,8 +13,8 @@ export function paymentSummary () {
     let taxCents = 0;
     let orderTotalCents = 0 ;
     cart.forEach((cartItem) => {
-        const { quantity, deliveryOptionsId, productId } = cartItem;
-        const deliveryOptions = findDeliveryOption(deliveryOptionsId);
+        const { quantity, deliveryOptionId, productId } = cartItem;
+        const deliveryOptions = findDeliveryOption(deliveryOptionId);
         const product = findProduct(productId)
 
         itemsQuantity += quantity;
@@ -21,7 +22,7 @@ export function paymentSummary () {
         shippingCents += deliveryOptions.priceCent
     });
     totalBeforeTaxCents = subtotalCents + shippingCents;
-    taxCents = totalBeforeTaxCents * 0.08;
+    taxCents = totalBeforeTaxCents * 0.1;
     orderTotalCents = totalBeforeTaxCents + taxCents ;
     
     paymentSummaryHTML =`
@@ -57,7 +58,7 @@ export function paymentSummary () {
                     <span class="summary-value">$${tofixedmoney(totalBeforeTaxCents)}</span>
                 </div>
                 <div class="summary-row">
-                    <span class="summary-label">Estimated Tax (8%):</span>
+                    <span class="summary-label">Estimated Tax (10%):</span>
                     <span class="summary-value">$${tofixedmoney(taxCents)}</span>
                 </div>
             </div>
@@ -71,7 +72,7 @@ export function paymentSummary () {
                 </div>
             </div>
 
-            <button class="btn-place-order">Place Your Order</button>
+            <button class="btn-place-order js-place-order">Place Your Order</button>
 
             <div class="secure-checkout">
                 <i class="ti ti-lock"></i>
@@ -81,5 +82,27 @@ export function paymentSummary () {
     
     `
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
+
+    document.querySelector('.js-place-order')
+        .addEventListener('click', async () => {
+            try {
+                const response = await fetch('https://supersimplebackend.dev/orders',{
+                    method: 'POST',
+                    headers: {
+                        'content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        cart: cart
+                    })
+                });
+    
+                const order = await response.json();
+                addOrder(order)
+            }   catch(error) {
+                console.log('unexpected error. Please try agaim later')
+            }
+            
+
+        })
 
 }

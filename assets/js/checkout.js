@@ -10,21 +10,31 @@ import { loadCartBackend } from '../data/cart-data.js';
 initHeader();
 
 async function loadPage() {
-    await loadProductFetch();
 
-    await new Promise((resolve) => {
-        loadCartBackend(() => {
-            resolve()
-        })
-    });
+    try {
+        //throw 'unexpected error'
+        await loadProductFetch();
 
-    console.log('display the page')
+        await new Promise((resolve, reject) => {
+            loadCartBackend(() => {
+                resolve()
+                //reject('error')
+            })
+        });
+    } catch(error) {
+        console.log(error)
+        console.log('somthing work wrong. please try later.')
+    }
+    
     renderCart();
     paymentSummary();
+    console.log('display the page')
 
 }
 
-loadPage()
+loadPage();
+
+
 
 
 /*

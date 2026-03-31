@@ -27,7 +27,7 @@ describe('test suite: renderOrderSummary', () => {
             return JSON.stringify([{
                 productId : products[3].id,
                 quantity : 3,
-                deliveryOptionsId: '1'
+                deliveryOptionId: '1'
             }])
         });
 

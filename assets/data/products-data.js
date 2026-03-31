@@ -57,6 +57,8 @@ export function loadProductFetch () {
             }
             return new Product(productDetails)
         });
+    }).catch(() => {
+        console.log('somthing work wrong try later.')
     });
 
     console.log('load product')
@@ -86,12 +88,18 @@ export function loadProductsBackend (fun) {
         });
 
         fun()
+    });
+
+
+    xhr.addEventListener('error', () => {
+        console.log('something work wrong try later.')
     })
 
     xhr.open('GET', 'https://supersimplebackend.dev/products');
     xhr.send();
     
 }
+
 
 
 

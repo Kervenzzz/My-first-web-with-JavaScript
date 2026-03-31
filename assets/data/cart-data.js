@@ -1,4 +1,5 @@
 import { paymentSummary } from "../js/checkout/paymentSummary.js";
+import { renderCart } from "../js/checkout/orderSummary.js";
 
 export let cart;
 
@@ -8,11 +9,11 @@ export function laodFromStorage() {
   cart = JSON.parse(localStorage.getItem('cart')) || [{
     productId :'3ebe75dc-64d2-4137-8860-1f5a963e534b',
     quantity : 3,
-    deliveryOptionsId: '1'
+    deliveryOptionId: '1'
   }, {
     productId :"8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
     quantity : 3,
-    deliveryOptionsId: '3'
+    deliveryOptionId: '3'
   }];
 }
 
@@ -34,7 +35,7 @@ export function addToCart (btnProductId, productQuantity) {
       cart.push({
         productId : btnProductId,
         quantity : productQuantity || 1 ,
-        deliveryOptionsId: '1'
+        deliveryOptionId: '1'
       })
     };
     saveCartToStorage()
@@ -60,7 +61,7 @@ export function removeToCart (productId) {
 export function updateDeliveryOptions (productId, deliveryOptionsId){
   let productMatching = findCartOption(productId)
 
-  productMatching.deliveryOptionsId = deliveryOptionsId;
+  productMatching.deliveryOptionId = deliveryOptionsId;
   saveCartToStorage()
 }
 
@@ -72,16 +73,15 @@ export function findCartOption (cartId) {
 
 export function updateCartQuantity (updateBtn, cartItem, newQuantityContainer) {
 
-  const texQuatity = cartItem.querySelector('.js-quantity');
+
   const id = cartItem.dataset.productId;
   const newQuantity = cartItem.querySelector('.js-new-quantity').value ;
   const cartOption = findCartOption(id);
   cartOption.quantity = Number(newQuantity) ;
-
-  texQuatity.textContent = newQuantity
   newQuantityContainer.classList.toggle('is-hidden');
   updateBtn.classList.toggle('is-hidden');
   saveCartToStorage();
+  renderCart()
   paymentSummary();
 }
 

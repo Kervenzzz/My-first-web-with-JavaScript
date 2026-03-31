@@ -16,10 +16,10 @@ export function renderCart () {
     
 
     cart.forEach((cartItem) => {
-        const { productId, quantity, deliveryOptionsId } = cartItem;
+        const { productId, quantity, deliveryOptionId } = cartItem;
         const product = findProduct(productId);
         
-        const deliveryOption = findDeliveryOption(deliveryOptionsId);
+        const deliveryOption = findDeliveryOption(deliveryOptionId);
         const deliveryDate = dayjs().add(deliveryOption.deliveryDays, 'day').format('DD, MMM YYYY')
         ProductsCheckoutHTML += `
             <div class="cart-item js-cart-item" data-product-id="${productId}">
@@ -51,7 +51,7 @@ export function renderCart () {
                 <div class="delivery-options">
                     <h3 class="section-subtitle">Choose Delivery Option</h3>
                     
-                    ${deliveryOptionsHTML(productId, deliveryOptionsId)}
+                    ${deliveryOptionsHTML(productId, deliveryOptionId)}
 
                 </div>
             </div>
@@ -79,7 +79,6 @@ export function renderCart () {
             updateCartQuantity(updateBtn,cartItem, newQuantityContainer);
         }else if (e.target.matches('.js-remove-to-cart')){
             removeToCart(id);
-            paymentSummary();
             cartItem.remove()
         }
     });
@@ -124,6 +123,7 @@ export function renderCart () {
         option.addEventListener('click', () =>{
             let { deliveryOptionId, productId } = option.dataset;
             updateDeliveryOptions(productId, deliveryOptionId);
+            paymentSummary();
             renderCart()
         })
     });
