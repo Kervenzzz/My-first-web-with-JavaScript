@@ -2,7 +2,7 @@ import { cart } from "../../data/cart-data.js";
 import { findDeliveryOption } from "../../data/deliveryOptions.js";
 import { tofixedmoney } from "../utiles/money.js";
 import { findProduct } from "../../data/products-data.js";
-import { addOrder } from "../../data/order.js";
+import { addOrder } from "../../data/order-data.js";
 
 export function paymentSummary () {
     let paymentSummaryHTML = '';
@@ -97,12 +97,14 @@ export function paymentSummary () {
                 });
     
                 const order = await response.json();
-                addOrder(order)
+                addOrder(order);
+                window.location.href = 'orders.html';
+            
             }   catch(error) {
                 console.log('unexpected error. Please try agaim later')
-            }
-            
+            };
 
+            
         })
 
 }
