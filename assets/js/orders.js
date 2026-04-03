@@ -3,6 +3,7 @@ import { orders } from '../data/order-data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { tofixedmoney } from './utiles/money.js';
 import { findProduct, loadProductFetch } from '../data/products-data.js';
+import { addToCart } from '../data/cart-data.js'
 
 initHeader();
 
@@ -31,7 +32,6 @@ function renderOrder() {
         const { products, id, orderTime, totalCostCents } = order;
 
         const datePlaced = dayjs(orderTime).format('MMMM D, YYYY');
-        console.log(datePlaced);
 
         let productsHTML = ''
 
@@ -39,8 +39,7 @@ function renderOrder() {
             const product = findProduct(productData.productId);
             const arrivingDate = dayjs(productData.estimatedDeliveryTime).format('MMMM DD');
             const { quantity } = productData;
-            console.log(productData)
-
+            
             const HTML = `
 
                 <div class="order-item">
@@ -53,15 +52,17 @@ function renderOrder() {
                         <p class="item-quantity">Quantity: ${quantity}</p>
                     </div>
                     <div class="item-actions">
-                        <button class="btn btn-primary">Buy Again</button>
-                        <button class="btn btn-secondary">Track Package</button>
+                        <button class="btn btn-primary js-buy-again"
+                        data-product-id="${product.id}">Buy Again</button>
+                        <a href="tracking.html?orderId=${id}&productId=${productData.productId}">
+                            <button class="btn btn-secondary">Track Package</button>
+                        </a>
                     </div>
                 </div>
 
             `
             productsHTML += HTML;
             
-
         })
 
         let HTML = `
@@ -92,6 +93,12 @@ function renderOrder() {
     });
 
     document.querySelector('#ordersContainer').innerHTML = ordersHTML;
+
+    const btnBuyAigain = document.querySelector('.js-buy-again');
+    btnBuyAigain.addEventListener('click', () => {
+            const  { productId }  = btnBuyAigain.dataset;
+            addToCart(productId)
+        })
 }
 
 displayOrder()

@@ -23,6 +23,10 @@ function saveCartToStorage () {
 
 
 export function addToCart (btnProductId, productQuantity) {
+
+  if(!productQuantity){
+    productQuantity = 1
+  }
     // comprobando si existe el producto en el cart
     const cartMatching = findCartOption(btnProductId);
 
@@ -34,7 +38,7 @@ export function addToCart (btnProductId, productQuantity) {
     
       cart.push({
         productId : btnProductId,
-        quantity : productQuantity || 1 ,
+        quantity : productQuantity ,
         deliveryOptionId: '1'
       })
     };
@@ -86,20 +90,27 @@ export function updateCartQuantity (updateBtn, cartItem, newQuantityContainer) {
 }
 
 
-let cartBackend;
+
 
 export function loadCartBackend (fun) {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
 
-      cartBackend = xhr.response;
-      console.log(cartBackend)
+      console.log(xhr.response)
       fun()
   })
 
   xhr.open('GET', 'https://supersimplebackend.dev/cart');
   xhr.send();
 
+};
+
+
+export async function loadCartFetch() {
+
+  const request = await fetch('https://supersimplebackend.dev/cart');
+  const cart = await request.text();
+  console.log(cart)
 
 }

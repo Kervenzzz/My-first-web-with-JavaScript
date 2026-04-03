@@ -2,25 +2,20 @@ import { initHeader } from '../js/header.js';
 import { renderCart } from './checkout/orderSummary.js';
 import { loadProductsBackend, loadProductFetch } from '../data/products-data.js';
 import { paymentSummary } from './checkout/paymentSummary.js';
-import { loadCartBackend } from '../data/cart-data.js';
+import { loadCartBackend, loadCartFetch } from '../data/cart-data.js';
 
 //import '../data/cartDataClass.js'
 //import '../data/backendPractice.js'
 
 initHeader();
 
+
+
 async function loadPage() {
 
     try {
-        //throw 'unexpected error'
-        await loadProductFetch();
-
-        await new Promise((resolve, reject) => {
-            loadCartBackend(() => {
-                resolve()
-                //reject('error')
-            })
-        });
+        await Promise.all([loadProductFetch(), loadCartFetch()])
+        
     } catch(error) {
         console.log(error)
         console.log('somthing work wrong. please try later.')

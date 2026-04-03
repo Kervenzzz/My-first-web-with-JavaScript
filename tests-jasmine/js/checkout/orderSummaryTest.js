@@ -5,10 +5,8 @@ import { products, loadProductsBackend, loadProductFetch } from "../../../assets
 describe('test suite: renderOrderSummary', () => {
 
     
-    beforeAll((done) => {
-        loadProductFetch().then(() => {
-            done()
-        })
+    beforeAll( async () => {
+        await loadProductFetch()
     })
 
     it('display the cart', () => {
@@ -35,5 +33,7 @@ describe('test suite: renderOrderSummary', () => {
 
         
         renderCart();
+
+        
     })
 } )
