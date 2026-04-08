@@ -1,10 +1,9 @@
-import { initHeader } from './header.js';
+
 import { loadProductFetch, findProduct } from '../data/products-data.js';
 import { orders } from '../data/order-data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 //import  './exercise.js';
 
-initHeader();
 
 async function displayProduct() {
     await loadProductFetch();

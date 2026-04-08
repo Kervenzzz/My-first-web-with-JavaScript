@@ -1,11 +1,9 @@
-import { initHeader } from './header.js';
 import { orders } from '../data/order-data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { tofixedmoney } from './utiles/money.js';
 import { findProduct, loadProductFetch } from '../data/products-data.js';
 import { addToCart } from '../data/cart-data.js'
 
-initHeader();
 
 async function displayOrder(params) {
 
