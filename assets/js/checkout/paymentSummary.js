@@ -83,28 +83,38 @@ export function paymentSummary () {
     `
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
-    document.querySelector('.js-place-order')
-        .addEventListener('click', async () => {
-            try {
-                const response = await fetch('https://supersimplebackend.dev/orders',{
-                    method: 'POST',
-                    headers: {
-                        'content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        cart: cart
-                    })
-                });
     
-                const order = await response.json();
-                addOrder(order);
-                window.location.href = 'orders.html';
-            
-            }   catch(error) {
-                console.log('unexpected error. Please try agaim later')
-            };
 
-            
-        })
+    const btnPlaceOrder = document.querySelector('.js-place-order');
 
+    disabledBtn(btnPlaceOrder)
+
+    btnPlaceOrder.addEventListener('click', async () => {
+        try {
+            const response = await fetch('https://supersimplebackend.dev/orders',{
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cart: cart
+                })
+            });
+
+            const order = await response.json();
+            addOrder(order);
+            window.location.href = 'orders.html';
+        
+        }   catch(error) {
+            console.log('unexpected error. Please try agaim later')
+        };
+
+    })
+
+}
+
+function disabledBtn(btn){ 
+    if(cart.length === 0 ){
+        btn.disabled = true;
+    }
 }

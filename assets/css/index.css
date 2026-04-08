@@ -103,6 +103,7 @@
 .nav-icons{
     display: flex;
     gap: var(--spacing-md);
+    align-items: center;
 }
 .nav-icons .ti,
 .mobile-sidebar__header .ti,
@@ -120,17 +121,7 @@
 .cart-icon{
     position: relative;
 }
-.cart-badge{
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--warning);
-    color: var(--color-text);
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
-    padding: 2px 6px;
-    border-radius: var(--radius-full);
-}
+
 
 /* NAV PAGES IMPROVED STYLES */
 .nav-pages {
@@ -176,11 +167,12 @@
     position: absolute;
     top: -9px;
     background-color: #f62;
-    width: 20px;
-    height: 20px;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
     text-align: center;
     border-radius: 50%;
-    right: 5px;
+    left: 9px;
     display: none;
 
 }
@@ -301,6 +293,7 @@
     min-height: 80dvh;
     width: 100%;
 }
+
 .bg-efect-container{
     pointer-events: none;
     position: absolute;
@@ -925,6 +918,7 @@
     .nav-icons {
         display: flex;
         gap: 8px;
+
     }
 
     .nav-icon {

@@ -3,7 +3,7 @@ import { cart, removeToCart, updateDeliveryOptions,  updateCartQuantity } from '
 import { tofixedmoney  } from '../utiles/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, findDeliveryOption } from '../../data/deliveryOptions.js';
-import { paymentSummary } from './paymentSummary.js';
+import { paymentSummary} from './paymentSummary.js';
 import {  findProduct } from '../../data/products-data.js';
 
 
@@ -11,6 +11,9 @@ import {  findProduct } from '../../data/products-data.js';
 
 
 export function renderCart () {
+
+    showEmptyCart();
+
     let ProductsCheckoutHTML = '';
 
     
@@ -61,7 +64,7 @@ export function renderCart () {
     const cartContainer = document.querySelector('.Cart-checkout-container');
     cartContainer.innerHTML = ProductsCheckoutHTML;
 
-
+    
 
     cartContainer.addEventListener('click', (e) => {
 
@@ -79,7 +82,9 @@ export function renderCart () {
             updateCartQuantity(updateBtn,cartItem, newQuantityContainer);
         }else if (e.target.matches('.js-remove-to-cart')){
             removeToCart(id);
-            cartItem.remove()
+            cartItem.remove();
+            showEmptyCart()
+
         }
     });
 
@@ -128,4 +133,15 @@ export function renderCart () {
         })
     });
 
+    function showEmptyCart() {
+        const emptyCart = document.querySelector('.js-empty-cart');
+        if(cart.length === 0){
+            emptyCart.classList.remove('is-hidden');
+        }else{
+            emptyCart.classList.add('is-hidden')
+        }
+    }
+
 };
+
+

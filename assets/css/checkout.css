@@ -183,6 +183,22 @@
     width: 50px;
     color: #0F1724;
 }
+
+.empty-cart a{
+    color: var(--color-primary);
+
+}
+.empty-cart p{
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-primary);
+    width: max-content;
+    padding-bottom: 3px;
+}
+
+.empty-cart a:hover{
+    text-decoration: underline;
+}
     
 
 
@@ -259,6 +275,10 @@
     background-color: var(--color-primary-700);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-place-order:disabled{
+    cursor: not-allowed;
 }
 
 .btn-place-order:active {

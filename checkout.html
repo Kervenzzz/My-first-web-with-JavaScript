@@ -59,9 +59,7 @@
                     <nav class="nav-pages">
                         <ul style="display:flex;gap:16px;list-style:none;align-items:center;">
                             <li><a href="index.html"><i class="ti ti-home"></i> Inicio</a></li>
-                            <li><a href="checkout.html" class="Cart-checkout"><span class="cart-count">3</span><i class="ti ti-credit-card"></i> Checkout</a></li>
                             <li><a href="orders.html"><i class="ti ti-box"></i> Pedidos</a></li>
-                            <li><a href="tracking.html"><i class="ti ti-map-pin"></i> Tracking</a></li>
                         </ul>
                     </nav>
 
@@ -80,9 +78,7 @@
                 </button>
                 <ul class="nav-sidebar-list">
                     <li><a href="index.html" class="nav-sidebar-link"><i class="ti ti-home"></i> Inicio</a></li>
-                    <li><a href="checkout.html" class="nav-sidebar-link"><i class="ti ti-credit-card"></i> Checkout</a></li>
                     <li><a href="orders.html" class="nav-sidebar-link"><i class="ti ti-box"></i> Pedidos</a></li>
-                    <li><a href="tracking.html" class="nav-sidebar-link"><i class="ti ti-map-pin"></i> Tracking</a></li>
                 </ul>
             </nav>
             <!--OVERLAY-->
@@ -96,7 +92,15 @@
 
                 <div class="checkout-wrapper">
                     <!-- LEFT SECTION: CART ITEMS -->
-                    <section class="checkout-items Cart-checkout-container"></section>
+                    <section >
+                        <div class="checkout-items Cart-checkout-container"></div>
+
+                        <div class="empty-cart is-hidden js-empty-cart">
+                            <p>Your cart is empty</p>
+                            <a href="index.html">Continue Shopping</a>
+                        </div>
+                         
+                    </section>
 
                     <!-- RIGHT SECTION: ORDER SUMMARY -->
                     <aside class="js-payment-summary" ></aside>
