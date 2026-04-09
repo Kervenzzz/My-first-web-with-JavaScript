@@ -5,7 +5,7 @@ import { findProduct, loadProductFetch } from '../data/products-data.js';
 import { addToCart } from '../data/cart-data.js'
 
 
-async function displayOrder(params) {
+async function displayOrder() {
 
         await loadProductFetch();
 
