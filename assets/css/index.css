@@ -207,6 +207,8 @@
     background-color: var(--surface-2);
     transition: transform 0.3s, opacity 0.3s;
     z-index: 1000;
+    height: 100dvh;
+    overflow-y: auto;
 }
 .search-section.open{
     transform: translateX(0);

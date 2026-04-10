@@ -1,10 +1,29 @@
-import { products, loadProductsBackend, loadProductFetch } from '../data/products-data.js';
+import { products,  loadProductFetch } from '../data/products-data.js';
 import { cart, addToCart } from '../data/cart-data.js';
 import { initHeader } from './header.js';
 
-loadProductFetch().then(() => {
-  renderProducts()
-})
+
+async function displayProducts() {
+  await loadProductFetch();
+  
+  renderProducts(products, '.js-products-grid');
+  
+  const btn = document.querySelector('.js-search-btn');
+  btn.addEventListener('click',(e) =>{
+    e.preventDefault();
+
+    const search = document.querySelector('#search-input').value;
+    const result = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+
+    console.log(result);
+
+    renderProducts(result,'.js-result-container')
+  });
+
+  
+}
+
+displayProducts()
 
 initHeader();
 
@@ -111,8 +130,8 @@ const dotsContainer = document.querySelector('.dots-container');
 
 
 // LIST OF PRODUCTS //
-function renderProducts() {
-  const productsContainer = document.querySelector('.js-products-grid')
+function renderProducts(products, container) {
+  const productsContainer = document.querySelector(container)
 
   let productsHtml = '';
 
@@ -194,5 +213,6 @@ function renderProducts() {
   updateCartCount()
 
 };
+
 
 
