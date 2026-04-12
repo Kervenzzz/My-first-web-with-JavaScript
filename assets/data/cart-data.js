@@ -62,6 +62,11 @@ export function removeToCart (productId) {
 
 }
 
+export function clearCart () {
+  cart = [];
+  saveCartToStorage();
+}
+
 export function updateDeliveryOptions (productId, deliveryOptionsId){
   let productMatching = findCartOption(productId)
 

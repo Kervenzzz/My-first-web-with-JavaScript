@@ -76,11 +76,11 @@ export function renderCart () {
         const updateBtn = cartItem.querySelector('.js-update-btn');
         const id = cartItem.dataset.productId;
 
-         if(e.target.matches('.js-update-btn')){
+         if(e.target.closest('.js-update-btn')){
             showNewQuatity(e, newQuantityContainer);
-        }else if(e.target.matches('.js-save-quantity')){
+        }else if(e.target.closest('.js-save-quantity')){
             updateCartQuantity(updateBtn,cartItem, newQuantityContainer);
-        }else if (e.target.matches('.js-remove-to-cart')){
+        }else if (e.target.closest('.js-remove-to-cart')){
             removeToCart(id);
             cartItem.remove();
             showEmptyCart()

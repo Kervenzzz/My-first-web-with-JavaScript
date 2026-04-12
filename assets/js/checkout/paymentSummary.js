@@ -1,4 +1,4 @@
-import { cart } from "../../data/cart-data.js";
+import { cart, clearCart } from "../../data/cart-data.js";
 import { findDeliveryOption } from "../../data/deliveryOptions.js";
 import { tofixedmoney } from "../utiles/money.js";
 import { findProduct } from "../../data/products-data.js";
@@ -103,10 +103,11 @@ export function paymentSummary () {
 
             const order = await response.json();
             addOrder(order);
+            clearCart();
             window.location.href = 'orders.html';
         
         }   catch(error) {
-            console.log('unexpected error. Please try agaim later')
+            console.log(error)
         };
 
     })
