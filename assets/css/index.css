@@ -76,40 +76,17 @@
     color: var(--color-primary);
 }
 
-.nav{
-    display: none;
-}
-.nav__list{
-    display: flex;
-    gap: var(--spacing-xl);
-}
-.nav__item{
-    font-weight: var(--fw-medium);
-    position: relative;
-}
-.nav__item::after{
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--color-primary);
-    transition: all 0.3s;
-}
-.nav__item:hover::after{
-    width: 100%;
-}
 .nav-icons{
     display: flex;
     gap: var(--spacing-md);
     align-items: center;
+    font-size: 25px;
 }
 .btn__close-search {
     background-color: var(--color-primary);
     font-size: 20px;
     border-radius: 10px;
-    margin-left: 30px;
+    margin-left: 10px;
     padding: 5px;
 }
 
@@ -123,36 +100,7 @@
     flex: 1;
 }
 
-.nav-pages ul {
-    display: flex ;
-    gap: 12px ;
-    list-style: none ;
-    align-items: center ;
-    justify-content: center;
-}
 
-.nav-pages ul li {
-    position: relative;
-}
-
-.nav-pages ul li a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-radius: 6px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    background-color: rgba(14, 165, 233, 0.05);
-    border: 1px solid rgba(14, 165, 233, 0.1);
-}
 
 .Cart-checkout{
     position: relative;
@@ -172,30 +120,7 @@
 
 }
 
-.nav-pages ul li a i {
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
 
-.nav-pages ul li a:hover {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%);
-    border-color: #0ea5e9;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
-    gap: 10px;
-    transform: translateY(-2px);
-}
-
-.nav-pages ul li a:hover i {
-    color: #0ea5e9;
-    transform: scale(1.2);
-}
-
-.nav-pages ul li a.active {
-    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-    border-color: #0ea5e9;
-    color: white;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
-}
 
 /* SEARCH SECTION */
 .search-section{
@@ -236,6 +161,7 @@
     align-items: center;
     color: #0a1929;
     max-width: 600px;
+    margin-right: 20px;
     
 }
 
